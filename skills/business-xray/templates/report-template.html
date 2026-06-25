@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{BUSINESS_NAME}} — Business X-Ray Report</title>
+<style>
+  :root {
+    --bg: #0f172a; --surface: #1e293b; --border: #334155;
+    --text: #e2e8f0; --muted: #94a3b8; --accent: #3b82f6;
+    --green: #22c55e; --yellow: #eab308; --red: #ef4444; --purple: #a855f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+  .subtitle { color: var(--muted); margin-bottom: 2rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .metric { text-align: center; padding: 1.5rem; }
+  .metric-value { font-size: 2.5rem; font-weight: 700; }
+  .metric-label { color: var(--muted); font-size: 0.9rem; }
+  .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin: 0.25rem; }
+  .tag-red { background: rgba(239,68,68,0.2); color: var(--red); }
+  .tag-yellow { background: rgba(234,179,8,0.2); color: var(--yellow); }
+  .tag-green { background: rgba(34,197,94,0.2); color: var(--green); }
+  .tag-purple { background: rgba(168,85,247,0.2); color: var(--purple); }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; }
+  .bowtie { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin: 1rem 0; }
+  .bowtie-stage { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+  .bowtie-stage h4 { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem; }
+  .bowtie-stage ul { list-style: none; font-size: 0.85rem; }
+  .bowtie-stage li { padding: 0.25rem 0; }
+  .swimlane { position: relative; margin: 2rem 0; }
+  .lane-row { display: flex; align-items: center; margin: 0.5rem 0; }
+  .lane-label { width: 120px; font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+  .lane-steps { display: flex; gap: 0.5rem; flex-wrap: wrap; flex: 1; }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.85rem; position: relative; }
+  .step.bottleneck { border-color: var(--red); border-width: 2px; }
+  .step.automate { border-style: dashed; border-color: var(--yellow); }
+  .step.high-value { border-color: var(--green); border-width: 2px; }
+  .step.digital-asset { border-color: var(--purple); }
+  .arrow { color: var(--muted); margin: 0 0.25rem; align-self: center; }
+  .roadmap-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .roadmap-priority { font-weight: 700; min-width: 80px; }
+  .priority-high { color: var(--red); }
+  .priority-medium { color: var(--yellow); }
+  .priority-low { color: var(--muted); }
+  .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; text-align: center; }
+  .section-icon { margin-right: 0.5rem; }
+  @media print { body { background: white; color: #1a1a1a; } .card { border: 1px solid #ddd; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>{{BUSINESS_NAME}}</h1>
+<p class="subtitle">Business X-Ray Report · {{DATE}}</p>
+
+<!-- EXECUTIVE SUMMARY -->
+<h2><span class="section-icon">📊</span>Executive Summary</h2>
+<div class="grid">
+  <div class="card metric">
+    <div class="metric-value" style="color: var(--accent);">{{TOTAL_PROCESSES}}</div>
+    <div class="metric-label">Processes Mapped</div>
+  </div>
+  <div class="card metric">
+    <div class="metric-value" style="color: var(--red);">{{BOTTLENECKS}}</div>
+    <div class="metric-label">Bottlenecks Found</div>
+  </div>
+  <div class="card metric">
+    <div class="metric-value" style="color: var(--yellow);">{{AUTOMATION_OPPS}}</div>
+    <div class="metric-label">Automation Opportunities</div>
+  </div>
+  <div class="card metric">
+    <div class="metric-value" style="color: var(--green);">{{LEVERAGE_SCORE}}</div>
+    <div class="metric-label">Leverage Score</div>
+  </div>
+</div>
+
+<!-- BUSINESS MODEL -->
+<h2><span class="section-icon">🏢</span>Business Model</h2>
+<div class="card">
+  <p><strong>Archetype:</strong> {{ARCHETYPE}}</p>
+  <p><strong>Revenue Model:</strong> {{REVENUE_MODEL}}</p>
+  <p><strong>Core Value Chain:</strong> {{VALUE_CHAIN}}</p>
+</div>
+
+<!-- BOW-TIE FUNNEL -->
+<h2><span class="section-icon">🎯</span>Bow-Tie Funnel</h2>
+<div class="bowtie">
+  <div class="bowtie-stage">
+    <h4>Attract</h4>
+    <ul>{{ATTRACT_ITEMS}}</ul>
+  </div>
+  <div class="bowtie-stage">
+    <h4>Engage</h4>
+    <ul>{{ENGAGE_ITEMS}}</ul>
+  </div>
+  <div class="bowtie-stage">
+    <h4>Convert</h4>
+    <ul>{{CONVERT_ITEMS}}</ul>
+  </div>
+  <div class="bowtie-stage">
+    <h4>Deliver</h4>
+    <ul>{{DELIVER_ITEMS}}</ul>
+  </div>
+  <div class="bowtie-stage">
+    <h4>Retain</h4>
+    <ul>{{RETAIN_ITEMS}}</ul>
+  </div>
+</div>
+
+<!-- PROCESS MAP -->
+<h2><span class="section-icon">🔄</span>Process Map</h2>
+{{PROCESS_MAP}}
+
+<!-- TOOL INVENTORY -->
+<h2><span class="section-icon">🛠️</span>Tool Inventory</h2>
+<table>
+  <tr><th>Tool</th><th>Used In</th><th>Automation Tier</th><th>MCP Available</th></tr>
+  {{TOOL_ROWS}}
+</table>
+
+<!-- OPPORTUNITIES -->
+<h2><span class="section-icon">💡</span>Opportunities</h2>
+<table>
+  <tr><th>Area</th><th>Opportunity</th><th>Category</th><th>Impact</th><th>Effort</th></tr>
+  {{OPPORTUNITY_ROWS}}
+</table>
+
+<!-- ACTION ROADMAP -->
+<h2><span class="section-icon">🗺️</span>90-Day Roadmap</h2>
+<h3>Do First (Weeks 1-2)</h3>
+{{DO_FIRST}}
+<h3>Do Next (Weeks 3-6)</h3>
+{{DO_NEXT}}
+<h3>Do Later (Weeks 7-12)</h3>
+{{DO_LATER}}
+
+<!-- DIGITAL ASSETS -->
+<h2><span class="section-icon">📦</span>24 Digital Assets Score</h2>
+<div class="grid">
+  {{ASSET_CATEGORIES}}
+</div>
+
+<div class="footer">
+  Generated by Hermes Forge · Business X-Ray · {{DATE}}
+</div>
+
+</div>
+</body>
+</html>

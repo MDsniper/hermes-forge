@@ -74,6 +74,11 @@ At each checkpoint:
 **When:** After Roadmap; user says "let's build this", "create a skill for this"
 **Output:** Classified opportunity list + handoff to `forge-skill`
 
+### Generate Report -> `workflows/generate-report.md`
+
+**When:** After any x-ray workflow; user says "generate report", "make a report", "export", "push to notion"
+**Output:** Polished HTML report + optional Notion page
+
 ### Scan Existing Diagram -> `workflows/scan-diagram.md`
 
 **When:** User has an existing .drawio file; "scan my diagram", "read my business map"
@@ -139,10 +144,19 @@ All outputs go in a single .drawio file with multiple pages:
 
 Load on-demand:
 - `references/drawio-standards.md` -- XML patterns, colors, styles
+- `references/bowtie-funnel.md` -- Bow-tie funnel XML patterns
 - `references/business-archetypes.md` -- Pre-built inference patterns
 - `references/swimlane-templates.md` -- Common process templates
 - `references/opportunity-categories.md` -- Fix options per category
 - `references/system-connection-template.md` -- Network diagram patterns
 - `references/operating-system-map-template.md` -- AI Employee map patterns
+- `references/common-tool-integrations.md` -- Tool connection inference data
+- `references/implementation-types.md` -- Classification for implementation routing
 - `references/24-assets-framework.md` -- Asset scoring criteria
 - `references/scorecard-template.md` -- Scorecard draw.io template
+- `references/mcp-directory.md` -- Tool to MCP/automation tier lookup
+
+## Templates
+
+- `templates/report-template.html` -- HTML report template (fill placeholders)
+- `templates/sample-report.html` -- Complete sample report (coach business)

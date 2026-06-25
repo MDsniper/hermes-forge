@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Coach Business — X-Ray Report</title>
+<style>
+  :root {
+    --bg: #0f172a; --surface: #1e293b; --border: #334155;
+    --text: #e2e8f0; --muted: #94a3b8; --accent: #3b82f6;
+    --green: #22c55e; --yellow: #eab308; --red: #ef4444; --purple: #a855f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+  .subtitle { color: var(--muted); margin-bottom: 2rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .metric { text-align: center; padding: 1.5rem; }
+  .metric-value { font-size: 2.5rem; font-weight: 700; }
+  .metric-label { color: var(--muted); font-size: 0.9rem; }
+  .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin: 0.25rem; }
+  .tag-red { background: rgba(239,68,68,0.2); color: var(--red); }
+  .tag-yellow { background: rgba(234,179,8,0.2); color: var(--yellow); }
+  .tag-green { background: rgba(34,197,94,0.2); color: var(--green); }
+  .tag-purple { background: rgba(168,85,247,0.2); color: var(--purple); }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; }
+  .bowtie { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin: 1rem 0; }
+  .bowtie-stage { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+  .bowtie-stage h4 { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem; }
+  .bowtie-stage ul { list-style: none; font-size: 0.85rem; }
+  .bowtie-stage li { padding: 0.25rem 0; }
+  .lane-row { display: flex; align-items: center; margin: 0.5rem 0; }
+  .lane-label { width: 120px; font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+  .lane-steps { display: flex; gap: 0.5rem; flex-wrap: wrap; flex: 1; }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.85rem; }
+  .step.bottleneck { border-color: var(--red); border-width: 2px; }
+  .step.automate { border-style: dashed; border-color: var(--yellow); }
+  .step.high-value { border-color: var(--green); border-width: 2px; }
+  .step.digital-asset { border-color: var(--purple); }
+  .arrow { color: var(--muted); margin: 0 0.25rem; align-self: center; }
+  .roadmap-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .roadmap-priority { font-weight: 700; min-width: 80px; }
+  .priority-high { color: var(--red); }
+  .priority-medium { color: var(--yellow); }
+  .priority-low { color: var(--muted); }
+  .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; text-align: center; }
+  @media print { body { background: white; color: #1a1a1a; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Sample Coach Business</h1>
+<p class="subtitle">Business X-Ray Report &middot; June 25, 2026 &middot; Sample</p>
+
+<h2>Executive Summary</h2>
+<div class="grid">
+  <div class="card metric">
+    <div class="metric-value" style="color: var(--accent);">6</div>
+    <div class="metric-label">Processes Mapped</div>
+  </div>
+  <div class="card metric">
+    <div class="metric-value" style="color: var(--red);">3</div>
+    <div class="metric-label">Bottlenecks Found</div>
+  </div>
+  <div class="card metric">
+    <div class="metric-value" style="color: var(--yellow);">8</div>
+    <div class="metric-label">Automation Opportunities</div>
+  </div>
+  <div class="card metric">
+    <div class="metric-value" style="color: var(--green);">62</div>
+    <div class="metric-label">Leverage Score</div>
+  </div>
+</div>
+
+<h2>Business Model</h2>
+<div class="card">
+  <p><strong>Archetype:</strong> Coach</p>
+  <p><strong>Revenue Model:</strong> High-ticket coaching ($3K-$10K per client)</p>
+  <p><strong>Core Value Chain:</strong> YouTube Content &rarr; Email List &rarr; Discovery Call &rarr; Coaching Package &rarr; Retention/Upsell</p>
+</div>
+
+<h2>Bow-Tie Funnel</h2>
+<div class="bowtie">
+  <div class="bowtie-stage">
+    <h4>Attract</h4>
+    <ul>
+      <li>YouTube videos (2x/week)</li>
+      <li>Instagram reels</li>
+      <li>Podcast guest spots</li>
+    </ul>
+  </div>
+  <div class="bowtie-stage">
+    <h4>Engage</h4>
+    <ul>
+      <li>Lead magnet download</li>
+      <li>Email welcome sequence</li>
+      <li>Weekly newsletter</li>
+    </ul>
+  </div>
+  <div class="bowtie-stage">
+    <h4>Convert</h4>
+    <ul>
+      <li>Discovery call</li>
+      <li>Proposal sent</li>
+      <li>Payment link</li>
+    </ul>
+  </div>
+  <div class="bowtie-stage">
+    <h4>Deliver</h4>
+    <ul>
+      <li>Onboarding questionnaire</li>
+      <li>Weekly 1:1 calls</li>
+      <li>Resource library access</li>
+    </ul>
+  </div>
+  <div class="bowtie-stage">
+    <h4>Retain</h4>
+    <ul>
+      <li>Check-in emails</li>
+      <li>Alumni community</li>
+      <li>Upsell to group coaching</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Process Map</h2>
+<div class="card">
+  <h3>Lead Generation</h3>
+  <div class="lane-row">
+    <div class="lane-label">Content</div>
+    <div class="lane-steps">
+      <div class="step high-value">Topic research</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step high-value">Script writing</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step bottleneck">Video editing</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step automate">Thumbnail creation</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step automate">Publish + distribute</div>
+    </div>
+  </div>
+  <div class="lane-row">
+    <div class="lane-label">Email</div>
+    <div class="lane-steps">
+      <div class="step automate">Lead magnet delivery</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step automate">Welcome sequence</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step high-value">Weekly newsletter</div>
+      <span class="arrow">&rarr;</span>
+      <div class="step bottleneck">Segment tagging</div>
+    </div>
+  </div>
+</div>
+
+<h2>Tool Inventory</h2>
+<table>
+  <tr><th>Tool</th><th>Used In</th><th>Tier</th><th>MCP</th></tr>
+  <tr><td>YouTube Studio</td><td>Lead Gen</td><td>Manual</td><td>API available</td></tr>
+  <tr><td>ConvertKit</td><td>Email</td><td>API</td><td>No MCP</td></tr>
+  <tr><td>Calendly</td><td>Sales</td><td>API</td><td>No MCP</td></tr>
+  <tr><td>Stripe</td><td>Payments</td><td>API</td><td>MCP available</td></tr>
+  <tr><td>Google Drive</td><td>Delivery</td><td>Native</td><td>MCP available</td></tr>
+  <tr><td>Zapier</td><td>Automation</td><td>API</td><td>MCP available</td></tr>
+</table>
+
+<h2>Opportunities</h2>
+<table>
+  <tr><th>Area</th><th>Opportunity</th><th>Category</th><th>Impact</th><th>Effort</th></tr>
+  <tr><td>Content</td><td>Auto-generate thumbnails from video stills</td><td><span class="tag tag-yellow">Automate</span></td><td>Medium</td><td>Low</td></tr>
+  <tr><td>Content</td><td>Repurpose YouTube scripts to newsletter + social</td><td><span class="tag tag-yellow">Automate</span></td><td>High</td><td>Low</td></tr>
+  <tr><td>Email</td><td>Auto-tag subscribers by lead magnet + behavior</td><td><span class="tag tag-yellow">Automate</span></td><td>High</td><td>Medium</td></tr>
+  <tr><td>Sales</td><td>Pre-call research packet from questionnaire</td><td><span class="tag tag-yellow">Automate</span></td><td>High</td><td>Medium</td></tr>
+  <tr><td>Delivery</td><td>Automated weekly progress check-in emails</td><td><span class="tag tag-yellow">Automate</span></td><td>Medium</td><td>Low</td></tr>
+  <tr><td>Retention</td><td>Alumni community auto-invite on completion</td><td><span class="tag tag-purple">Digital Asset</span></td><td>Medium</td><td>Medium</td></tr>
+  <tr><td>Content</td><td>Video editing (bottleneck -- outsource or AI)</td><td><span class="tag tag-red">Bottleneck</span></td><td>High</td><td>High</td></tr>
+  <tr><td>Operations</td><td>Client onboarding automation (form to Drive to CRM)</td><td><span class="tag tag-yellow">Automate</span></td><td>High</td><td>Medium</td></tr>
+</table>
+
+<h2>90-Day Roadmap</h2>
+<h3>Do First (Weeks 1-2)</h3>
+<div class="roadmap-item">
+  <div class="roadmap-priority priority-high">HIGH</div>
+  <div><strong>Content repurposing pipeline</strong><br>YouTube script &rarr; newsletter + social posts. Saves 3-4 hrs/week. <span class="tag tag-yellow">Automate</span></div>
+</div>
+<div class="roadmap-item">
+  <div class="roadmap-priority priority-high">HIGH</div>
+  <div><strong>Client onboarding automation</strong><br>Form submission &rarr; Google Drive folder &rarr; Calendar invite &rarr; CRM update. <span class="tag tag-yellow">Automate</span></div>
+</div>
+
+<h3>Do Next (Weeks 3-6)</h3>
+<div class="roadmap-item">
+  <div class="roadmap-priority priority-medium">MED</div>
+  <div><strong>Email segmentation automation</strong><br>Auto-tag by lead magnet, engagement, and purchase history. <span class="tag tag-yellow">Automate</span></div>
+</div>
+<div class="roadmap-item">
+  <div class="roadmap-priority priority-medium">MED</div>
+  <div><strong>Pre-call research packet</strong><br>Auto-generate client brief from questionnaire responses. <span class="tag tag-yellow">Automate</span></div>
+</div>
+
+<h3>Do Later (Weeks 7-12)</h3>
+<div class="roadmap-item">
+  <div class="roadmap-priority priority-low">LOW</div>
+  <div><strong>Thumbnail generation tool</strong><br>AI-generated thumbnails from video stills + title. <span class="tag tag-yellow">Automate</span></div>
+</div>
+<div class="roadmap-item">
+  <div class="roadmap-priority priority-low">LOW</div>
+  <div><strong>Alumni community pipeline</strong><br>Auto-invite on coaching completion + feedback survey. <span class="tag tag-purple">Digital Asset</span></div>
+</div>
+
+<h2>24 Digital Assets Score</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Content Assets</h3>
+    <p><span class="tag tag-green">YouTube library (50+ videos)</span> <span class="tag tag-yellow">Newsletter archive</span> <span class="tag tag-red">Blog (none)</span></p>
+  </div>
+  <div class="card">
+    <h3>System Assets</h3>
+    <p><span class="tag tag-green">Email sequences</span> <span class="tag tag-yellow">Onboarding flow</span> <span class="tag tag-red">SOPs (none)</span></p>
+  </div>
+  <div class="card">
+    <h3>Data Assets</h3>
+    <p><span class="tag tag-yellow">Email list (2K)</span> <span class="tag tag-red">Client database (manual)</span> <span class="tag tag-red">Analytics dashboard</span></p>
+  </div>
+  <div class="card">
+    <h3>Revenue Assets</h3>
+    <p><span class="tag tag-green">Coaching offer</span> <span class="tag tag-yellow">Lead magnet</span> <span class="tag tag-red">Group program (none)</span></p>
+  </div>
+</div>
+
+<div class="footer">
+  Generated by Hermes Forge &middot; Business X-Ray &middot; June 25, 2026<br>
+  <em>This is a sample report demonstrating the HTML output format.</em>
+</div>
+
+</div>
+</body>
+</html>

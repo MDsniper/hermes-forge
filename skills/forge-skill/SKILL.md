@@ -23,6 +23,14 @@ description: "Create, validate, test, upgrade, and improve Hermes skills -- and 
 **When:** "make this production-grade", "add a harness", "the skill keeps ignoring its own rule"
 **Output:** Gate scripts + reviewer pattern + eval harness.
 
+### Test a skill -> `workflows/test-skill.md`
+**When:** "test skill", "eval skill", "is this skill actually good?"
+**Output:** Graded eval report with pass/fail against salted fixtures.
+
+### Upgrade and restructure -> `workflows/upgrade-skill.md`
+**When:** "upgrade my skills", "fix my routing", "restructure this", "my skills are a mess"
+**Output:** Restructured skill with cleaner routing, extracted references, no dead weight.
+
 ### Update an existing skill -- Evidence-Driven Discipline
 **When:** "update skill X", "add this to the skill", "improve this skill", "the skill should also..."
 
