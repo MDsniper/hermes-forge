@@ -80,9 +80,8 @@ At each checkpoint:
 **When:** After any x-ray workflow; user says "generate report", "make a report", "export"
 **Output:** Final HTML report deployed to xray.bawai.org
 
-### Scan Existing Diagram -> `workflows/scan-diagram.md`
-
-**When:** User has an existing .drawio file; "scan my diagram", "read my business map"
+### Scan Existing Report -> `workflows/scan-diagram.md`
+**When:** User has an existing report; "scan my report", "read my business map"
 **Output:** Reconstructed business state + next steps
 
 ---
@@ -115,12 +114,14 @@ Detailed patterns: `read references/business-archetypes.md`
 
 ## Output Format
 
-Two artifacts per engagement:
+One artifact per engagement:
 
-**Working file:** Single `.drawio` file with multiple pages (the editable source you keep):
+**HTML report** at `~/hermes-xray-reports/reports/[business-name]-xray-[date].html`, deployed to https://xray.bawai.org/reports/[name]-xray-[date].html.
 
-| Page | Content |
-|------|---------|
+The report is the **single source of truth** -- it contains every section, all editable in place:
+
+| Section | Format |
+|---------|--------|
 | Business Overview | 7-column Business Map + Bow-Tie Funnel |
 | [Area] Page | Main swimlane + sub-processes |
 | System Connection Map | Hub-and-spoke network diagram |
@@ -128,7 +129,7 @@ Two artifacts per engagement:
 | 24 Assets Scorecard | 24 asset grid + Leverage Score |
 | Action Roadmap | DO FIRST / DO NEXT / DO LATER |
 
-**Client deliverable:** Polished HTML report deployed to https://xray.bawai.org/reports/[name]-xray-[date].html (via `workflows/generate-report.md`). Client opens the link in their browser -- no draw.io required.
+No .drawio, no app.diagrams.net, no draw.io container. Client opens the link in their browser.
 
 ---
 
@@ -147,9 +148,7 @@ Two artifacts per engagement:
 
 ## References
 
-Load on-demand:
-- `references/drawio-standards.md` -- XML patterns, colors, styles
-- `references/bowtie-funnel.md` -- Bow-tie funnel XML patterns
+Load on-demand for inference patterns and scoring frameworks:
 - `references/business-archetypes.md` -- Pre-built inference patterns
 - `references/swimlane-templates.md` -- Common process templates
 - `references/opportunity-categories.md` -- Fix options per category
@@ -158,8 +157,9 @@ Load on-demand:
 - `references/common-tool-integrations.md` -- Tool connection inference data
 - `references/implementation-types.md` -- Classification for implementation routing
 - `references/24-assets-framework.md` -- Asset scoring criteria
-- `references/scorecard-template.md` -- Scorecard draw.io template
 - `references/mcp-directory.md` -- Tool to MCP/automation tier lookup
+- `references/bowtie-funnel.md` -- Bow-tie funnel patterns
+- `references/scorecard-template.md` -- 24 assets scorecard layout
 
 ## Templates
 
