@@ -65,7 +65,7 @@ opportunities:
 roadmap_created: false
 
 # Files Generated
-drawio_pages:
+html_sections:
   - "Business Overview"
   - "Bow-Tie Funnel"
   - "Content Creation Swimlane"
@@ -76,7 +76,6 @@ drawio_pages:
 # 1. Start new conversation
 # 2. Say: "Continue my Business X-Ray session"
 # 3. Paste this YAML block
-# 4. (Optional) Upload the .drawio file
 
 # ============================================
 # BLANK TEMPLATE
@@ -101,4 +100,4 @@ drawio_pages:
 #
 # roadmap_created: [true | false]
 #
-# drawio_pages: []
+# html_sections: []

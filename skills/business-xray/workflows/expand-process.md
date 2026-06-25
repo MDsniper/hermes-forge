@@ -86,7 +86,9 @@ Based on the phase and business type, infer what systems handle it:
 >
 > These can run in parallel. Which one causes the most issues?"
 
-**For diagram generation:** Use swimlane XML patterns from `references/drawio-standards.md`
+**For HTML section generation:** Add the swimlane section to the report HTML directly. See `templates/report-template.html` for the swimlane HTML pattern.
+
+Key rules: One element per slot. Sequential flow uses arrows. Branch and converge patterns use vertical stacking. Every element gets its own row even across lanes. Wider is better than taller. Max 2 stacked per lane.
 
 ### What to Ask at Level 2
 
@@ -129,7 +131,9 @@ Based on the phase and business type, infer what systems handle it:
 >
 > This takes about 5 minutes when automated. Is any part manual?"
 
-**For diagram generation:** Use swimlane XML patterns from `references/drawio-standards.md`
+**For HTML section generation:** Add the swimlane section to the report HTML directly. See `templates/report-template.html` for the swimlane HTML pattern.
+
+Key rules: One element per slot. Sequential flow uses arrows. Branch and converge patterns use vertical stacking. Every element gets its own row even across lanes. Wider is better than taller. Max 2 stacked per lane.
 
 ### What to Ask at Level 3
 
@@ -290,9 +294,12 @@ Reference `references/opportunity-categories.md` for detailed options per catego
 
 ### For Claude Code
 
-Save as new page in existing .drawio file:
-- Add page after Bow-Tie
-- Use swimlane XML template from `references/drawio-standards.md`
+Save as new section in the report HTML:
+
+- Use the swimlane HTML pattern from `templates/report-template.html`
+- Each lane becomes a `.lane-row` div
+- Each step becomes a `.step` div with optional annotation class (bottleneck/automate/high-value/digital-asset)
+- Sequential steps separated by `<span class="arrow">→</span>`
 - Apply annotation colors
 
 ### For Web/ChatGPT
@@ -306,10 +313,7 @@ Output XML:
 ```
 
 > "Add this page to your Business X-Ray file:
-> 1. Open your .drawio file at app.diagrams.net
-> 2. Right-click the page tabs at bottom → Insert Page
-> 3. Name it '[Process Name] Flow'
-> 4. Paste this XML"
+> 1. The expanded swimlane section is now in your report HTML at https://xray.bawai.org/reports/[name]-xray-[date].html
 
 ---
 
@@ -405,7 +409,7 @@ Each area page contains:
 | Level 3 divider | y=600 |
 | Level 3 swimlane | y=640 |
 
-**For diagram generation:** Use swimlane and spacing patterns from `references/drawio-standards.md`
+**For HTML section generation:** Add the swimlane section to the report HTML directly. See `templates/report-template.html` for the swimlane HTML pattern.
 
 ---
 

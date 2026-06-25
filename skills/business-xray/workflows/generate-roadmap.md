@@ -16,7 +16,7 @@ After process expansion is complete, this workflow:
 2. Prioritizes using impact + effort framework
 3. Generates 90-day roadmap with reasoning
 4. Allows user to shuffle order
-5. Outputs actionable .drawio page
+5. Outputs an actionable roadmap HTML section in the report
 
 ---
 
@@ -235,7 +235,15 @@ Each item has:
 | **DO NEXT** | Important but not urgent | 2-4 items |
 | **DO LATER** | Nice-to-have, refinements | 2-3 items |
 
-### Color Reference (for draw.io)
+### Color Reference (for HTML badges)
+
+Use these color tokens when rendering roadmap badges inline in the report HTML:
+
+| Priority | Color | Badge Text |
+|----------|-------|------------|
+| DO FIRST | red `var(--red)` | "DO FIRST" |
+| DO NEXT | orange `var(--orange)` | "DO NEXT" |
+| DO LATER | yellow `var(--yellow)` | "DO LATER" |
 
 | Type | Icon | Border | Fill |
 |------|------|--------|------|
@@ -246,7 +254,25 @@ Each item has:
 
 ---
 
-## Step 5: Add to .drawio File
+## Step 5: Add to Report HTML
+
+Append the roadmap section to the report HTML directly:
+
+```html
+<section class="roadmap">
+  <h2>90-Day Roadmap</h2>
+  <h3>DO FIRST</h3>
+  <ul class="opportunity-list">
+    <li><span class="annotation badge-red">DO FIRST</span> [Item with reasoning]</li>
+  </ul>
+  <h3>DO NEXT</h3>
+  <ul class="opportunity-list">...</ul>
+  <h3>DO LATER</h3>
+  <ul class="opportunity-list">...</ul>
+</section>
+```
+
+Save the file.
 
 ### For Claude Code
 
@@ -254,7 +280,7 @@ Add as new page to existing Business X-Ray file:
 
 ```xml
 <diagram name="90-Day Roadmap" id="page-roadmap">
-    <!-- Roadmap content from references/drawio-standards.md -->
+    <!-- Roadmap content rendered directly as HTML in the report -->
 </diagram>
 ```
 
@@ -268,7 +294,7 @@ Output XML:
 > [Roadmap XML]
 > ```
 >
-> 1. Open your .drawio file
+> 1. The roadmap section is now in your report HTML
 > 2. Insert new page at the end
 > 3. Name it '90-Day Roadmap'
 > 4. Paste this XML"
@@ -307,7 +333,7 @@ Output XML:
 > 🔗 **System Connection Map** - How your tools connect (if generated)
 > 📅 **90-Day Roadmap** - Prioritized action plan
 >
-> **Your .drawio file has [X] pages** - use the tabs at the bottom to navigate.
+> **Your roadmap section is now in your report at https://xray.bawai.org/reports/[name]-xray-[date].html**
 >
 > **What would you like to do next?**
 >

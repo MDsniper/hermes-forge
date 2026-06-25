@@ -391,9 +391,9 @@ After completing each build:
 
 ---
 
-## Output: Build Plan (.drawio Page — Optional)
+## Output: Build Plan (HTML Section — Optional)
 
-If the user wants a visual build plan, generate as a new .drawio page:
+If the user wants a visual build plan, generate as a new HTML section in the report:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -474,20 +474,19 @@ last_updated: [date]
 
 ## Build Plan Diagram (Optional)
 
-If user wants the visual .drawio page, generate it directly:
+If user wants the build plan HTML section, generate it directly:
 
-1. Read `references/drawio-standards.md` for color standards
-2. Generate Implementation Plan page XML with:
-   - **Layout:** Vertical checklist with type icons and dependency arrows
-   - **Page name:** Implementation Plan | **Page ID:** page-impl
+1. Read the references for layout patterns
+2. Generate the build plan HTML with classified opportunities
+3. Append as new section to the report HTML at `~/hermes-xray-reports/reports/[business-name]-xray-[date].html`
+4. Tell the user: "Build plan added to your report."
    - **Color coding:**
      - AI Employee: Blue border #6C8EBF, fill #DAE8FC
      - Digital Asset: Purple border #9370DB, fill #f5f0ff
      - Integration: Green border #82b366, fill #d5e8d4
      - Process Change: Orange border #FFA500, fill #fff8e6
    - Include: Progress tracking (checkboxes), dependency arrows, time estimates, weekly savings
-3. Add as new page to existing .drawio file
-4. Tell the user: "Implementation Plan page added to your diagram."
+   4. Tell the user: "Implementation Plan section added to your report."
 
 ---
 

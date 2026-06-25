@@ -14,7 +14,7 @@ MIME: text/markdown
 This workflow scores every asset in the business using Daniel Priestley's 24 Assets framework. It runs as an **integrated phase** of the Business X-Ray — after the Business Map, Bow-Tie, and Swimlanes have been mapped. Claude has already been silently accumulating asset signals throughout the interview. Now it's time to formally score them.
 
 It produces:
-1. A color-coded 24 Assets Scorecard (.drawio page)
+1. A color-coded 24 Assets Scorecard (HTML section in the report)
 2. A Leverage Score showing business independence from the owner
 3. Concrete action steps for upgrading the highest-leverage gaps
 4. Asset upgrade items that feed directly into the Action Roadmap
@@ -33,7 +33,7 @@ It produces:
 - Triggered directly: "score my assets", "24 assets", "leverage score", "asset assessment"
 - No prior interview data — asks all questions from scratch
 - Same question flow, just needs slightly more context per question
-- If a `.drawio` file exists, Claude reads it first for context (but still asks, never assumes scores)
+- If a report HTML exists, Claude reads it first for context (but still asks, never assumes scores)
 
 ---
 
@@ -75,7 +75,7 @@ See `references/24-assets-framework.md` → "Inference Signals" per asset for wh
 **Integrated Mode:**
 - [ ] Business Map complete (at minimum)
 - [ ] At least 1 swimlane mapped
-- [ ] File path to .drawio known
+- [ ] Report HTML path known (or scanning for one)
 
 **Standalone Mode:**
 - None — the workflow handles discovery internally
@@ -395,13 +395,11 @@ Generate the 24 Assets Scorecard page directly:
    - Deprioritized styling (gray fill + colored border)
    - Muted styling for Secondary-tier categories
    - ID naming convention
-2. Read `references/drawio-standards.md` for general XML standards
-3. Generate scorecard XML with all 24 asset scores applied
-4. Add as new page to existing .drawio file
-   - Page name: '24 Assets Scorecard'
-   - Page ID: 'page-assets'
-   - Position: After System Connection Map page, before Action Roadmap page
-5. Tell the user: "24 Assets Scorecard added to your diagram."
+2. Generate scorecard HTML section with all 24 asset scores applied
+3. Add as new section to the report HTML at `~/hermes-xray-reports/reports/[business-name]-xray-[date].html`
+   - Section name: '24 Assets Scorecard'
+   - Position: After System Connection Map, before Action Roadmap
+4. Tell the user: "24 Assets Scorecard added to your report."
 
 ---
 
@@ -542,7 +540,7 @@ asset_upgrades_identified: []
 
 After 24 Assets Assessment is complete:
 - **Generate Roadmap:** → `workflows/generate-roadmap.md` (combines swimlane findings + asset upgrades into one priority list)
-- **Stop here:** Output .drawio + resume block
+- **Stop here:** Output report HTML + resume block
 
 ---
 
@@ -551,7 +549,7 @@ After 24 Assets Assessment is complete:
 | Reference | When to Load |
 |-----------|-------------|
 | `references/24-assets-framework.md` | At Step 3 — scoring criteria, Green standards, inference signals, and action playbook |
-| `references/scorecard-template.md` | At Step 6 — read this to generate the .drawio scorecard page |
+| `references/scorecard-template.md` | At Step 6 — read this to generate the scorecard HTML section |
 | `references/business-archetypes.md` | At Step 2 — default relevance tiers per archetype |
 
 ---

@@ -11,7 +11,7 @@ The owner walks away with one picture of how the work gets done *without them*: 
 
 > **Skill System = AI Employee** — same thing, two names. On a build blueprint like this, use **Skill System** (it reads as a thing you build, not a hire). "AI Employee" stays as the vision metaphor in the title.
 
-> **This works for ANY business.** The cold-email agency (`examples/example-operating-system-map.drawio`) and coach (`examples/example-operating-system-map-coach.drawio`) examples are just two shapes. Flex the *content*; keep the *structure*. Never tell the user the map was "designed for an agency" or any archetype — just build theirs.
+> **This works for ANY business.** Flex the *content*; keep the *structure*. Never tell the user the map was "designed for an agency" or any archetype — just build theirs.
 
 ---
 
@@ -158,18 +158,15 @@ STOP. Wait.
 
 ### Step 8: Generate the diagram
 
-1. Read `references/operating-system-map-template.md` (layout, geometry, snippets) and `references/drawio-standards.md` (colors).
-2. Generate the **Operating System Map** page (id `page-osmap`), pipeline structure:
-   - **Horizontal legend strip** at top: 🟦 Skill System · ⬜ Skill · 🔌 Tool/MCP (✅/🔶/⚪) · 🟪 Digital Asset · 🟧 Handoff.
-   - **One card per Skill System**, numbered ①→④: blue header → **SKILLS** zone (blue) → **TOOLS / MCPs** zone (tier-colored) → **DIGITAL ASSETS** zone (purple, ✅/⚠️ status).
-   - **Handoff shelves BETWEEN cards** (amber): the purple Digital Asset(s) passed forward, with bold arrows *into* the shelf and *out* to the next card.
-   - **Loop-back arrow** (dashed amber) from the last stage to the first: "↺ renewal & referral fuels new leads."
-   - **"⚡ SKILL SYSTEMS TO BUILD FIRST"** row at the bottom — cards in build order, each tagged (⚡/🧱/🔗/⚪).
-   - Back to Overview link.
-3. **Add as a new page** to the existing `.drawio` file (never a separate file).
-4. Tell the user: "Operating System Map added — page [N]."
-
-> **If the Draw.io MCP is connected**, render inline. Otherwise output XML / save per Cross-Platform rules.
+1. Read `references/operating-system-map-template.md` for layout patterns.
+2. Generate the **Operating System Map** as an HTML section in the report:
+   - **Horizontal legend strip** at top: Skill System / Skill / Tool (tier-colored) / Digital Asset / Handoff.
+   - **One card per Skill System**, numbered: blue header → SKILLS zone (blue) → TOOLS zone (tier-colored) → DIGITAL ASSETS zone (purple, status-colored).
+   - **Handoff shelves BETWEEN cards** (amber): the purple Digital Asset(s) passed forward, with bold arrows.
+   - **Loop-back arrow** (dashed amber) from the last stage to the first: "renewal & referral fuels new leads."
+   - **"SKILL SYSTEMS TO BUILD FIRST"** row at the bottom — cards in build order.
+3. **Append the section to the report HTML** at `~/hermes-xray-reports/reports/[business-name]-xray-[date].html`.
+4. Tell the user: "Operating System Map added to your report."
 
 ### Step 8b: Build the file system on disk (automatic — no second interview)
 
@@ -194,7 +191,7 @@ Invoke the `business-os` skill (its `scaffold-departments` flow) and **hand it t
 STOP. Wait.
 - **A)** → `workflows/implementation-router.md` (routes to `meta-create-skill` / `meta-create-mcp`)
 - **B)** → `workflows/generate-roadmap.md`
-- **C)** → Output `.drawio` + resume block
+- **C)** → Output report HTML + resume block
 
 ---
 
@@ -234,6 +231,5 @@ build_first_order:           # ordered, tagged
 
 ## Cross-Platform Mode
 
-- **Claude Code:** append the page to `diagrams/[business-name]-x-ray.drawio`.
-- **Claude Web / ChatGPT / Gemini:** output the page XML for copy-paste; include the resume block.
-- **Draw.io MCP connected:** render inline as a review beat, then save/append the page.
+- **Hermes / Hermes Forge:** append the section to `~/hermes-xray-reports/reports/[business-name]-xray-[date].html`.
+- **Claude Web / ChatGPT / Gemini:** output the HTML for copy-paste; include the resume block.

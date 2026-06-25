@@ -11,7 +11,7 @@ MIME: text/markdown
 
 ## Page Structure
 
-The System Connection Map is a single .drawio page added between the last process swimlane and the Action Roadmap.
+The System Connection Map is a single HTML section appended between the last process swimlane and the Action Roadmap.
 
 ```xml
 <diagram name="System Connection Map" id="page-scm">

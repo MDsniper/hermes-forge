@@ -12,7 +12,7 @@ MIME: text/markdown
 ## Purpose
 
 After the initial 24 Assets Assessment, users return periodically to update individual asset scores as they complete roadmap items. This workflow:
-1. Reads the existing 24 Assets Scorecard from the .drawio file
+1. Reads the existing 24 Assets Scorecard from the report HTML
 2. Presents current scores for review
 3. Lets the user update changed assets
 4. Recalculates the Leverage Score
@@ -30,8 +30,8 @@ After the initial 24 Assets Assessment, users return periodically to update indi
 
 ## Prerequisites
 
-- [ ] Existing .drawio file with a "24 Assets Scorecard" page
-- [ ] Previous scores available (in .drawio or YAML resume block)
+- [ ] Existing report HTML with a "24 Assets Scorecard" section
+- [ ] Previous scores available (in YAML resume block)
 
 ---
 
@@ -39,12 +39,12 @@ After the initial 24 Assets Assessment, users return periodically to update indi
 
 ### Step 1: Load Existing Scores
 
-Read the existing scorecard from the .drawio file using the scan-diagram pattern:
-1. Find the "24 Assets Scorecard" page in the .drawio file
-2. Extract current scores by parsing cell colors (Green/Yellow/Red)
-3. Extract current Leverage Score from the summary cell
+Read the existing scorecard from the report HTML:
+1. Find the "24 Assets Scorecard" section in the HTML
+2. Extract current scores per asset (look for color-coded badges: green/yellow/red)
+3. Compare to the YAML resume block
 
-If no .drawio file exists, ask user to paste their YAML resume block or run a fresh assessment.
+If no report HTML exists, ask user to paste their YAML resume block or run a fresh assessment.
 
 ### Step 2: Present Current Scores
 
@@ -93,7 +93,7 @@ Calculate new Leverage Score and show comparison:
 Update the 24 Assets Scorecard page directly:
 
 1. Read `references/scorecard-template.md` for the page standard
-2. Read existing .drawio file
+2. Update the existing report HTML scorecard section in place
 3. Replace the existing '24 Assets Scorecard' page with updated scores and new Leverage Score
 4. Write updated file
 5. Tell the user: "Scorecard updated with new scores."

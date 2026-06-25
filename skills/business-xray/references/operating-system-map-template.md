@@ -13,7 +13,7 @@ This is the **payoff page**. It reads two ways at once:
 
 It ends with **"Skill Systems to Build First"** — cards in build order (see the ordering algorithm in `workflows/operating-system-map.md`).
 
-> Standard draw.io palette (`references/drawio-standards.md`). Worked examples: `examples/example-operating-system-map.drawio` (agency) and `examples/example-operating-system-map-coach.drawio` (coach). The layout is **business-agnostic** — flex every label.
+> Standard HTML section pattern (see `templates/report-template.html`). Flex every label.
 
 ---
 
@@ -162,5 +162,5 @@ osm-loopback · osm-opp-divider · osm-opp-header · osm-opp-[j] · osm-back
 - [ ] Loop-back arrow present (retention/referral)
 - [ ] Build-first row in BUILD ORDER (Slot 1 = the user's #1) and each card tagged (⚡/🧱/🔗/⚪)
 - [ ] Horizontal legend strip with all 5 node types; Back link present
-- [ ] Every cell unique id; every `&` written `&amp;`; page added to the existing `.drawio` file
+- [ ] Every cell unique id; every `&` written `&amp;`; section appended to the report HTML
 ```

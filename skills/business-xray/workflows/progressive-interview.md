@@ -1,11 +1,6 @@
-# Business X-Ray
-
-Source: business-x-ray/workflows/progressive-interview.md
-MIME: text/markdown
-
 # Progressive Interview Workflow
 
-**Extract business information through inference-first questioning, building visual artifacts incrementally.**
+**Extract business information through inference-first questioning, building the HTML report incrementally.**
 
 ---
 
@@ -15,9 +10,10 @@ MIME: text/markdown
 
 ### Step 1: Opening
 Say this EXACTLY:
+
 > "Welcome to your Business X-Ray. Before we dive in, here's exactly what we're doing and why.
 >
-> **The Goal:** Build a complete visual map of your business — every traffic source, every conversion step, every delivery process, and the numbers connecting them. By the end, you'll see your entire business on one screen and know exactly where the biggest opportunities are hiding.
+> **The Goal:** Build a complete HTML report of your business — every traffic source, every conversion step, every delivery process, and the numbers connecting them. By the end, you'll have a polished report hosted at https://xray.bawai.org that you can send to anyone, no software required.
 >
 > **Here's the plan — we'll work through this in order:**
 > 1. **First, we'll build your Business Map** — Your 7-column overview: traffic sources, converters, products, funnels, math, team, and key activities. This is the bird's-eye view of how your business actually works today.
@@ -26,7 +22,7 @@ Say this EXACTLY:
 >
 > **How it works:** I'll ask you questions one at a time. For each one, I'll make an educated guess based on what you've told me — you just confirm, correct, or add detail. The more context you give me, the more accurate your X-Ray will be. There are no wrong answers, and you can always go back and adjust.
 >
-> **What you'll walk away with:** A `.drawio` file with every page mapped out (the working source you can edit anytime), AND a polished HTML report deployed to https://xray.bawai.org that you can send to anyone -- no draw.io required on their end. You'll also have a clear picture of which area to focus on next and why.
+> **What you'll walk away with:** A polished HTML report at https://xray.bawai.org/reports/[your-business]-xray-[date].html that you can send to anyone — no software to install. You'll also have a clear picture of which area to focus on next and why.
 >
 > **Take your time.** The more detail you share, the better your X-Ray will be. If you need to step away at any point, just come back and we'll pick up right where we left off.
 >
@@ -47,6 +43,7 @@ From their response, identify which archetype they match:
 
 ### Step 3: Present Pre-Filled Business Map Guess
 Based on archetype, present YOUR GUESS of their business:
+
 > "Based on what you've told me, here's my initial map:
 >
 > **Business Type:** [Your guess]
@@ -72,6 +69,7 @@ Go through each column. Ask ONE question, wait for response, then next:
 **CRITICAL:** After EACH question, STOP and wait for their response before asking the next.
 
 ### Step 5: Checkpoint - Business Map Complete
+
 > "Here's your Business Map:
 >
 > [Show summary of all 7 columns]
@@ -80,7 +78,7 @@ Go through each column. Ask ONE question, wait for response, then next:
 
 STOP. Wait for confirmation.
 
-**After confirmation:** Generate the Business Map section directly in the report HTML:
+**After confirmation:** Update the Business Map section in the report HTML:
 1. Open `templates/report-template.html` (or the live engagement's HTML file)
 2. Update the `.business-map` grid with the confirmed 7 columns
    - Add sub-labels (Primary/Secondary for Traffic, Free/Paid for Products)
@@ -90,6 +88,7 @@ STOP. Wait for confirmation.
 
 ### Step 6: Infer Bow-Tie Funnel
 From Business Map data, present the 7-stage customer journey:
+
 > "Based on your Business Map, here's your customer journey:
 >
 > **ACQUISITION:** [Awareness] → [Nurturing] → [Consideration]
@@ -101,6 +100,7 @@ From Business Map data, present the 7-stage customer journey:
 STOP. Wait for response.
 
 ### Step 7: Checkpoint - Business Overview Complete
+
 > "Great! Your Business Overview is complete.
 >
 > Now let's map out how things actually work. Which area should we dive into first?
@@ -111,20 +111,19 @@ STOP. Wait for response.
 
 STOP. Wait for choice.
 
-**After Bow-Tie confirmation (before asking about areas):** Add Bow-Tie Funnel to the diagram directly:
-1. Read `references/bowtie-funnel.md` for exact XML patterns
-2. Read existing .drawio file
-3. Add Bow-Tie Funnel BELOW the Business Map on the same page
-   - CRITICAL: This is a 7-COLUMN GRID, NOT a flowchart
-   - Each activity = its own separate rectangle
-   - Row 1: Title → Row 2: Phase banners → Row 3: Column headers → Row 4: Activity boxes
-4. Write updated file
-5. Tell the user: "Bow-Tie Funnel added to your diagram."
+**After Bow-Tie confirmation (before asking about areas):** Update the Bow-Tie section in the report HTML:
+1. Open the report HTML
+2. Update the `.bowtie` section with the confirmed 7-stage customer journey
+   - Use `bowtie-side acquisition` and `bowtie-side delivery` divs
+   - Each stage goes in a `.bowtie-stage` div with a `<strong>` label and description
+3. Save the file
+4. Tell the user: "Bow-Tie Funnel added to your report."
 
 ### Step 8: Map Selected Process (Level 1)
 Based on their choice, map the process with actor lanes (Owner | AI | Team | Output).
 
 Present your inference:
+
 > "Based on what you told me, here's your [Process] flow:
 >
 > **PHASE 1:** [Activity] → Owner
@@ -136,23 +135,25 @@ Present your inference:
 
 STOP. Wait for response. Iterate until confirmed.
 
-**After process flow is confirmed:** Add Process Swimlane page directly:
-1. Read `references/drawio-standards.md` — especially the 'Swimlane Placement Algorithm' section
-2. Read `references/swimlane-templates.md` for connection rules and working examples
-3. Complete the 5-step placement reasoning before generating XML:
-   - Step 1: Connection map (every element → target, with lane assignments)
-   - Step 2: Main flow path (longest chain start to finish)
-   - Step 3: Placement grid (X,Y for each element on the main path)
-   - Step 4: Branch element placements (X,Y for each, with arrow-crossing check)
-   - Step 5: Arrow audit (verify every arrow goes RIGHT or DOWN, none cross boxes)
-4. Generate the swimlane XML
-5. Add as new page to existing .drawio file
-6. Tell the user: "[Process] swimlane page added to your diagram."
+**After process flow is confirmed:** Add a Process Swimlane section to the report HTML:
+1. Open the report HTML
+2. Add a new `<section>` with class `process-swimlane` after the bow-tie
+3. For each actor lane (Owner, AI, Team, Output), create a `.lane-row` div containing:
+   - `.lane-label` div with the actor name
+   - `.lane-steps` div with flexbox children — each step is a `.step` div, separated by `<span class="arrow">→</span>`
+4. Apply annotation classes to steps:
+   - `class="step bottleneck"` — red border (slowing down)
+   - `class="step automate"` — orange dashed border (AI could do this)
+   - `class="step high-value"` — green border (keep doing)
+   - `class="step digital-asset"` — purple border (needs building)
+5. Save the file
+6. Tell the user: "[Process] swimlane added to your report."
 
-Key rules: One element per slot. NEVER UP/LEFT arrows (except cross-lane returns). Fan-out targets on different rows, converge target RIGHT of both. Every element gets its own X even across rows. Wider is better than taller. Max 2 stacked per lane.
+Key rules: One step per slot. Sequential flow uses arrows. Branch and converge patterns use vertical stacking. Each lane gets its own row.
 
 ### Step 9: Probe for Gaps
 If any phase seems incomplete, probe:
+
 > "You mentioned [X]. But what happens after - [specific gap question]?"
 
 Use the gap detection tables below to know what to probe for.
@@ -165,6 +166,7 @@ As you map, listen for pain signals:
 - "I don't have that" → Digital asset needed
 
 After mapping, OBSERVE:
+
 > "I noticed a few things while we mapped:
 > - [X] and [Y] are all you - those seem like time sinks
 > - [Z] could probably be automated
@@ -191,61 +193,10 @@ ASSET SIGNALS (internal — do NOT show to user until 24 Assets Assessment phase
 [Asset Name]: [what was observed] | Source: [which phase]
 ```
 
-**What to track per phase:**
-
-| Phase | Assets That Naturally Surface |
-|-------|------------------------------|
-| **Business Map — Traffic** | Channels (which platforms), Content (publishing activity) |
-| **Business Map — Converters** | Gifts (lead magnets), Positioning (how offer is framed) |
-| **Business Map — Products** | Core Product, P4P, P4C, Gifts |
-| **Business Map — Funnels** | Marketing & Sales Systems (automation vs manual) |
-| **Business Map — Team** | Culture assets (solo vs team, who does what) |
-| **Business Map — Goals** | Methodology (named processes), Content (creation rhythm) |
-| **Bow-Tie — Awareness** | Content, Channels |
-| **Bow-Tie — Nurture** | Data (do they track?), Marketing Systems |
-| **Bow-Tie — Delivery** | Operations Systems, Methodology |
-| **Swimlane — Lead Gen** | Marketing & Sales Systems, Channels, Content |
-| **Swimlane — Sales** | Marketing & Sales Systems, Core Product |
-| **Swimlane — Fulfillment** | Operations Systems, Methodology, Technicians |
-
-**CRITICAL: Do NOT score assets during these phases.** Just note the signal. Scoring happens in the dedicated 24 Assets Assessment phase. See `workflows/digital-assets-assessment.md` for the scoring workflow.
-
-**Reference `references/24-assets-framework.md`** → "Inference Signals" section per asset for specific signal patterns to watch for.
-
-**What to track:**
-- Tool/platform name (YouTube, Notion, Calendly, Excel, etc.)
-- Which process(es) it appeared in (Lead Gen, Sales, Fulfillment, Admin)
-- What role it plays in each process
-- Connection status to other tools (auto/manual/unknown) — capture when volunteered
-
-**When to track:**
-- During Business Map extraction (Traffic sources, Converters, Products mention platforms)
-- During Level 1 mapping (actors mention systems)
-- During Level 2/3 expansion (systems and tools named explicitly)
-- ANY time the user mentions a tool by name
-
-**Do NOT ask extra questions about tools during this phase.** Just note them silently. The System Connection Map synthesis step (see `workflows/system-connection-map.md`) will use this data later.
-
-**Reference `references/common-tool-integrations.md`** to recognize tool names and infer possible connections.
-
-### Handoff & Priority Tracking (Maintain Internally — feeds the Operating System Map)
-
-**As you map the Bow-Tie and process flows, silently note two more things the Operating System Map needs later. Do NOT add new questions — both surface from what you're already mapping.**
-
-1. **Handoffs — what passes between stages.** Each time work moves from one system to the next (Marketing → Sales → Delivery → Operations), note the deliverable that crosses the boundary — e.g. "Marketing → Sales: a qualified lead", "Sales → Delivery: a signed client + intake". The Bow-Tie's stage transitions reveal these. On the OS Map this becomes the Digital Asset shown *between* stages.
-
-2. **Priority anchor — the user's #1.** From the pain signals ("I do all of that myself", "that takes forever") plus any goal/dream they volunteer, note which ONE system, if it ran itself, would change their week most — and whether that's the same place that eats their time today (the bottleneck). This **orders** the "Skill Systems to Build First" row on the OS Map.
-
-```
-HANDOFFS (internal):       [Stage A → Stage B: what passes]
-PRIORITY ANCHOR (internal): #1 = [system]; bottleneck = [system]; dream = [their words]
-```
-
-Capture both passively — they never interrupt the interview. The Operating System Map workflow (`workflows/operating-system-map.md`) confirms them before rendering.
-
 ### Step 11: Decision Point
 
 **If this is the FIRST process mapped (e.g., only Lead Gen done so far):**
+
 > "Your [Process] page is done. What's next?
 >
 > A) **Map another area** - Sales or Fulfillment
@@ -254,6 +205,7 @@ Capture both passively — they never interrupt the interview. The Operating Sys
 > D) **Stop here** - Take what we have and start fixing"
 
 **If 2+ processes are mapped, PROACTIVELY recommend the System Connection Map:**
+
 > "Your [Process] page is done — nice work. You've now mapped [Lead Gen + Sales / all three areas].
 >
 > Before we jump to a roadmap, I'd strongly recommend mapping how your tools connect. During our conversation, I noticed you're using [list 3-5 tools from Tool Inventory — e.g., YouTube, Substack, Notion, Calendly, Stripe]. Right now some of those are probably connected and some aren't — that's where the biggest automation wins hide.
@@ -267,12 +219,10 @@ Capture both passively — they never interrupt the interview. The Operating Sys
 
 STOP. Wait for choice.
 
-- **A)** → `workflows/system-connection-map.md` (synthesizes Tool Inventory into network diagram). After it, offer the **Operating System Map** (`workflows/operating-system-map.md`) — the future-state view of the business as connected AI Employees.
+- **A)** → `workflows/system-connection-map.md`. After it, offer the **Operating System Map** (`workflows/operating-system-map.md`).
 - **B)** Loop back to Step 8 for next area
 - **C)** → Transition to 24 Assets Assessment first (see Step 12), then roadmap
-- **D)** Output .drawio + resume block
-
-**Recommended flow:** Map at least 2 areas → System Connection Map → **Operating System Map** → 24 Assets Assessment → Roadmap.
+- **D)** Output current report HTML + resume block
 
 ### Step 12: Transition to 24 Assets Assessment
 
@@ -288,23 +238,28 @@ This is NOT optional — it's the natural next phase. Claude has been silently t
 
 → `workflows/generate-roadmap.md`
 
-### Step 12: Output Diagram + Resume Block
-Generate the .drawio file (or XML for web users) and provide the resume YAML block.
+### Step 12: Output Report + Resume Block
+Generate the final report HTML and provide the resume YAML block.
 
-**Final diagram output:** Finalize the .drawio file directly:
-1. Read the .drawio file
-2. Verify all expected pages are present:
-   - Page 1: Business Overview (Business Map + Bow-Tie)
-   - Page 2+: Process swimlanes with annotations
-3. Apply any remaining opportunity annotations (bottleneck=red, automate=orange, high-value=green, digital-asset=purple)
-4. Write final version
-5. Tell the user: "Your Business X-Ray is complete. File: diagrams/[name]-x-ray.drawio"
+**Final report output:** Finalize the report HTML directly:
+1. Open the report HTML
+2. Verify all expected sections are present:
+   - Business Overview (Business Map + Bow-Tie)
+   - Process swimlanes with annotations
+   - System Connection Map (if done)
+   - Operating System Map (if done)
+   - 24 Assets Scorecard (if done)
+   - 90-Day Roadmap (if done)
+3. Apply any remaining opportunity annotations to steps (bottleneck=red, automate=orange, high-value=green, digital-asset=purple)
+4. Save the final version
+5. Deploy to srv996032: rebuild the Docker image and update the xray-reports service
+6. Confirm to user: "Your Business X-Ray is complete. Live at: https://xray.bawai.org/reports/[name]-xray-[date].html"
 
 ---
 
 ## Purpose
 
-This workflow guides the progressive extraction of business information, producing:
+This workflow guides the progressive extraction of business information, producing one polished HTML report:
 1. **Business Map** (7 columns) - Complete business snapshot
 2. **Bow-Tie Funnel** - Customer journey visualization
 3. **Lead Generation Swimlane** - First process mapped with pain discovered through mapping
@@ -607,10 +562,7 @@ After all 7 columns extracted:
 >
 > Does this capture your business accurately? Any adjustments?"
 
-**If Claude Code:** Generate .drawio file with Business Map page
-
-**If Web/ChatGPT:** Output XML for copy-paste:
-> "Copy this XML and paste it at app.diagrams.net:"
+**Next:** Update the `.business-map` section of the report HTML with the confirmed 7 columns and save.
 
 ---
 
@@ -637,7 +589,7 @@ Use Business Map data to infer the 7-stage funnel:
 > **ACQUISITION (narrowing)**
 > - Awareness: [YouTube, Instagram]
 > - Nurturing: [Free guide, Email list]
-> - Consideration: [Application form, Discovery call]
+> - Consideration: [Application, Discovery call]
 >
 > **COMMIT (the knot)**
 > - Conversion: [Enrollment call → Payment]
@@ -655,9 +607,9 @@ After user confirms Bow-Tie:
 
 > "Great! Your Business Overview is complete - Business Map + Bow-Tie Funnel on one page.
 >
-> [Generate visual or output XML - both sections on Page 1]
->
 > Now let's map out how things actually work..."
+
+**Next:** Update the `.bowtie` section of the report HTML with the confirmed 7 stages and save.
 
 ---
 
@@ -802,7 +754,30 @@ Based on Business Map data, infer the COMPLETE process flow with actor lanes:
 >
 > Does this match your process? What's missing?"
 
-**For diagram generation:** Use swimlane XML patterns from `references/drawio-standards.md`
+**HTML swimlane pattern:**
+```html
+<div class="process-swimlane">
+  <h2>Lead Generation</h2>
+  <div class="lane-row">
+    <div class="lane-label">Owner</div>
+    <div class="lane-steps">
+      <div class="step">Create Content</div>
+      <span class="arrow">→</span>
+      <div class="step bottleneck">Review Applications</div>
+    </div>
+  </div>
+  <div class="lane-row">
+    <div class="lane-label">AI / System</div>
+    <div class="lane-steps">
+      <div class="step">Distribute</div>
+      <span class="arrow">→</span>
+      <div class="step automate">SEO optimization</div>
+      <span class="arrow">→</span>
+      <div class="step">Capture (email signup)</div>
+    </div>
+  </div>
+</div>
+```
 
 **IMPORTANT:** Level 1 must show the COMPLETE journey, not just one activity:
 
@@ -904,7 +879,7 @@ Sometimes users want to drill specifically into Onboarding. Expand to show:
 **Common Onboarding sub-phases:**
 
 | Sub-Phase | Purpose | Examples |
-|-----------|---------|----------|
+|-----------|---------|---------|
 | **Welcome** | Confirm purchase, set expectations | Welcome email, celebration message, what's next |
 | **Intake** | Gather info needed to serve them | Intake form, questionnaire, asset collection |
 | **Setup** | Get them access and oriented | Portal access, community invite, tool setup |
@@ -941,7 +916,7 @@ Drill into ONE phase to show the systems that handle it:
 >
 > These should run before each call. Which one causes delays or gets skipped?"
 
-**For diagram generation:** Use swimlane XML patterns from `references/drawio-standards.md`
+**HTML pattern:** Same as Level 1, but lane labels are sub-systems instead of actor types.
 
 **What to ask at Level 2:**
 - "What systems handle this phase?"
@@ -976,7 +951,7 @@ Drill into ONE system to show execution steps with tool names:
 >
 > This takes about 15 minutes. Which step is the bottleneck?"
 
-**For diagram generation:** Use swimlane XML patterns from `references/drawio-standards.md`
+**HTML pattern:** Same as Level 1/2, but step text includes tool names.
 
 **Level 3 includes:**
 - Specific tool names (Claude, Notion, Zapier, ConvertKit, etc.)
@@ -1040,23 +1015,22 @@ After Lead Generation swimlane is complete and annotated:
 **Based on choice:**
 - **Map another:** Loop back to Phase 3 for next area
 - **Roadmap:** → `generate-roadmap.md`
-- **Stop:** Output current .drawio + resume block
+- **Stop:** Output current report HTML + resume block
 
 ---
 
 ## Cross-Platform Mode
 
-### Claude Code (File Access)
+### Hermes / Hermes Forge (File Access)
 
-- Generate .drawio files directly
+- Update HTML report files directly
 - Save progress state to file
-- Show file path to user
+- Deploy via Docker service update
 
-### Claude Web / ChatGPT (No File Access)
+### Web / ChatGPT (No File Access)
 
-- Output XML in code blocks
-- Instruct user to copy → paste at app.diagrams.net
-- Output Resume Block for session continuity
+- Output HTML in code blocks
+- Instruct user to save the file and open in a browser
 
 ---
 
@@ -1067,7 +1041,9 @@ At end of session, output this block:
 ```yaml
 # Business X-Ray Progress - Copy this to resume later
 stage: [current_stage]
+business_name: [name]
 business_type: [type]
+report_url: https://xray.bawai.org/reports/[name]-xray-[date].html
 business_map_complete: [true/false]
 bowtie_complete: [true/false]
 pain_points: [list]
@@ -1097,7 +1073,7 @@ operating_system_map_complete: false
 assets_assessment_complete: false
 assets_scores:
   ip:
-    content: null       # green/yellow/red
+    content: null
     methodology: null
     registered_ip: null
   brand:
@@ -1128,7 +1104,7 @@ assets_scores:
     structure: null
     risk_mitigation: null
 relevance_tiers:
-  ip: null              # critical/important/secondary
+  ip: null
   brand: null
   market: null
   product: null
@@ -1147,8 +1123,7 @@ last_updated: [date]
 > "To continue this session later:
 > 1. Copy the progress block above
 > 2. Start a new session and paste it
-> 3. Also upload your .drawio file if you have one
-> 4. Say 'continue my Business X-Ray'
+> 3. Say 'continue my Business X-Ray'
 >
 > I'll pick up exactly where we left off."
 
@@ -1185,7 +1160,7 @@ When user mentions vague activities, always drill:
 
 ## Data Output Format
 
-After interview, structure data for diagram generation:
+After interview, structure data for the HTML report:
 
 ### Business Map Data
 
@@ -1247,9 +1222,9 @@ After interview, structure data for diagram generation:
 After Phase 3 (Lead Generation mapped):
 - **If mapping another area:** Loop back to Phase 3 pattern for Sales or Fulfillment
 - **If 2+ areas mapped → PROACTIVELY recommend System Connection Map** before 24 Assets
-- **After mapping is done → 24 Assets Assessment** (Step 12) — always runs before roadmap
+- **After mapping is done → 24 Assets Assessment** (Step 12) -- always runs before roadmap
 - **After 24 Assets → Roadmap** → `generate-roadmap.md` (combines swimlane findings + asset upgrades)
-- **If stopping early:** Output current .drawio + resume block
+- **If stopping early:** Output current report HTML + resume block
 
 **Recommended flow:** Map processes → System Connection Map → **24 Assets Assessment** → Roadmap
 The 24 Assets assessment uses signals Claude collected throughout the interview to quickly score business assets. The roadmap then combines process improvements AND asset upgrades into one priority list.

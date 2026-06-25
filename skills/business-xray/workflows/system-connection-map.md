@@ -16,7 +16,7 @@ This workflow runs AFTER process swimlanes are mapped (Level 2/3) and BEFORE the
 **Most data is already collected.** This step:
 1. Presents the full Tool Inventory to the user
 2. Asks targeted questions about UNKNOWN connections only
-3. Generates a hub-and-spoke network diagram (.drawio page)
+3. Generates a hub-and-spoke network diagram (HTML section in the report)
 4. Feeds integration opportunities into the Roadmap
 
 ---
@@ -139,7 +139,7 @@ STOP. Wait for confirmation.
 Generate the System Connection Map page directly:
 
 1. Read `references/system-connection-template.md` for complete XML patterns
-2. Read `references/drawio-standards.md` for color standards
+2. Read the references for color standards
 3. Generate hub-and-spoke network diagram XML with:
    - **Page name:** System Connection Map | **Page ID:** page-scm
    - **Category zones** for each business function
@@ -154,7 +154,7 @@ Generate the System Connection Map page directly:
      - Broken: red dotted #FF6B6B, label: '???'
    - **Opportunities** as numbered badges
    - Legend, Stats box, Back to Overview link
-4. Add as new page to existing .drawio file
+4. Append the section to the report HTML at `~/hermes-xray-reports/reports/[business-name]-xray-[date].html`
 5. Tell the user: "System Connection Map added to your diagram."
 
 ### Step 7: Present Opportunities
@@ -195,7 +195,7 @@ STOP. Wait for choice.
 - **A)** → `workflows/operating-system-map.md`
 - **B)** → `workflows/digital-assets-assessment.md`
 - **C)** → `workflows/generate-roadmap.md`
-- **D)** → Output .drawio + resume block
+- **D)** → Output report HTML + resume block
 
 ---
 
@@ -230,7 +230,7 @@ Same as Post-BX-Ray Steps 2-4. Go through connections one pair at a time.
 
 Proceed with Checkpoint, Diagram Generation, Opportunities — same as Post-BX-Ray mode.
 
-**Standalone output:** Single .drawio file with just the System Connection Map page (no Business Overview, no swimlanes).
+**Standalone output:** Single report HTML with just the System Connection Map section (no Business Overview, no swimlanes).
 
 ---
 
@@ -291,4 +291,4 @@ After System Connection Map is complete:
 - **24 Assets Assessment:** → `workflows/digital-assets-assessment.md` (recommended — score all business assets before building roadmap)
 - **Generate Roadmap:** → `generate-roadmap.md` (includes both process AND connection opportunities)
 - **Implementation Router:** → `workflows/implementation-router.md` (if Roadmap already exists, skip straight to building)
-- **Stop here:** Output .drawio + resume block
+- **Stop here:** Output report HTML + resume block
