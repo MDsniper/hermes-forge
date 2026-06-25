@@ -114,7 +114,9 @@ Detailed patterns: `read references/business-archetypes.md`
 
 ## Output Format
 
-All outputs go in a single .drawio file with multiple pages:
+Two artifacts per engagement:
+
+**Working file:** Single `.drawio` file with multiple pages (the editable source you keep):
 
 | Page | Content |
 |------|---------|
@@ -124,6 +126,8 @@ All outputs go in a single .drawio file with multiple pages:
 | Operating System Map | Future-state AI Employees |
 | 24 Assets Scorecard | 24 asset grid + Leverage Score |
 | Action Roadmap | DO FIRST / DO NEXT / DO LATER |
+
+**Client deliverable:** Polished HTML report deployed to https://xray.bawai.org/reports/[name]-xray-[date].html (via `workflows/generate-report.md`). Client opens the link in their browser -- no draw.io required.
 
 ---
 

@@ -26,7 +26,7 @@ Say this EXACTLY:
 >
 > **How it works:** I'll ask you questions one at a time. For each one, I'll make an educated guess based on what you've told me — you just confirm, correct, or add detail. The more context you give me, the more accurate your X-Ray will be. There are no wrong answers, and you can always go back and adjust.
 >
-> **What you'll walk away with:** A `.drawio` diagram file you can open anytime that shows your entire business at a glance. You'll also have a clear picture of which area to focus on next and why.
+> **What you'll walk away with:** A `.drawio` file with every page mapped out (the working source you can edit anytime), AND a polished HTML report deployed to https://xray.bawai.org that you can send to anyone -- no draw.io required on their end. You'll also have a clear picture of which area to focus on next and why.
 >
 > **Take your time.** The more detail you share, the better your X-Ray will be. If you need to step away at any point, just come back and we'll pick up right where we left off.
 >
