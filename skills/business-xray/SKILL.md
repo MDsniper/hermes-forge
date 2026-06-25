@@ -43,32 +43,32 @@ At each checkpoint:
 ### Start New X-Ray -> `workflows/progressive-interview.md`
 
 **When:** User says "business x-ray", "map my business", "let's do an x-ray"
-**Output:** Business Map + Bow-Tie Funnel (.drawio)
+**Output:** HTML report at xray.bawai.org/reports/[name]-xray-[date].html
 
 ### Expand Process -> `workflows/expand-process.md`
 
 **When:** User says "drill down", "expand this", "show me more detail"
-**Output:** Process swimlane with annotations (.drawio page)
+**Output:** New HTML section in the report with swimlane + annotations
 
 ### Generate Roadmap -> `workflows/generate-roadmap.md`
 
 **When:** User says "what should I fix", "prioritize", "roadmap"
-**Output:** 90-Day Roadmap (.drawio page)
+**Output:** 90-Day Roadmap HTML section
 
 ### Map System Connections -> `workflows/system-connection-map.md`
 
 **When:** After process expansion; user says "how do my tools connect", "system map"
-**Output:** System Connection Map (.drawio page)
+**Output:** System Connection Map HTML section
 
 ### Map Operating System -> `workflows/operating-system-map.md`
 
 **When:** After System Connection Map; user says "show my AI employees", "future state"
-**Output:** Operating System Map (.drawio page)
+**Output:** Operating System Map HTML section
 
 ### 24 Assets Assessment -> `workflows/digital-assets-assessment.md`
 
 **When:** User says "score my assets", "24 assets", "leverage score"
-**Output:** 24 Assets Scorecard + Leverage Score
+**Output:** 24 Assets Scorecard HTML section + Leverage Score
 
 ### Implementation Router -> `workflows/implementation-router.md`
 
@@ -77,8 +77,8 @@ At each checkpoint:
 
 ### Generate Report -> `workflows/generate-report.md`
 
-**When:** After any x-ray workflow; user says "generate report", "make a report", "export", "push to notion"
-**Output:** Polished HTML report + optional Notion page
+**When:** After any x-ray workflow; user says "generate report", "make a report", "export"
+**Output:** Final HTML report deployed to xray.bawai.org
 
 ### Scan Existing Diagram -> `workflows/scan-diagram.md`
 
