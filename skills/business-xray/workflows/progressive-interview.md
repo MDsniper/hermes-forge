@@ -80,17 +80,13 @@ Go through each column. Ask ONE question, wait for response, then next:
 
 STOP. Wait for confirmation.
 
-**After confirmation:** Generate the Business Map diagram directly:
-1. Read `references/drawio-standards.md` for XML patterns
-2. Generate Business Map .drawio XML from the confirmed 7 columns
-   - Add `<a href>` links for any URLs collected during the interview (traffic profiles, converter pages, product pages, funnel assets)
-   - Add "Primary"/"Secondary" sub-labels in Traffic column
-   - Add "Free"/"Paid" sub-labels in Products column
-   - Ensure Funnels are 1:1 with Products (planned items get light color + dashed border)
-   - Use correct column colors: Traffic (green/blue/red by type), Converters (white), Products (blue), Funnels (purple)
-   - Include a Legend below the map
-3. Write to `diagrams/[business-name]-x-ray.drawio`
-4. Tell the user: "Business Map diagram saved."
+**After confirmation:** Generate the Business Map section directly in the report HTML:
+1. Open `templates/report-template.html` (or the live engagement's HTML file)
+2. Update the `.business-map` grid with the confirmed 7 columns
+   - Add sub-labels (Primary/Secondary for Traffic, Free/Paid for Products)
+   - Color borders by type (green/blue/red for traffic, blue for products, purple for funnels)
+3. Save to `~/hermes-xray-reports/reports/[business-name]-xray-[date].html`
+4. Tell the user: "Business Map updated in your report."
 
 ### Step 6: Infer Bow-Tie Funnel
 From Business Map data, present the 7-stage customer journey:

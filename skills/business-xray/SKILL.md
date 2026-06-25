@@ -18,22 +18,23 @@ Map, diagnose, and optimize business operations through progressive visual analy
 
 ## Diagram Generation
 
-Generate all diagram XML inline. Do NOT use subagents for diagrams.
+Generate diagrams as **inline HTML/SVG within the report template**. Do NOT use .drawio files, do NOT deploy a draw.io container, do NOT ask the client to install anything.
+
+The x-ray's source format is **HTML** (the `report-template.html`). It is edited directly, version-controlled, and deployed to the client site. Bow-Tie Funnels, Business Maps, Process Swimlanes, System Maps, and the 24 Assets Scorecard all render as CSS Grid + flexbox HTML blocks.
 
 At each checkpoint:
-1. Read the relevant reference file for XML patterns
-2. Generate the .drawio XML
-3. Write to file
-4. Confirm to user
+1. Update the relevant section of the report HTML directly
+2. Save to `~/hermes-xray-reports/reports/[business-name]-xray-[date].html`
+3. Confirm to user
 
-| Diagram Type | Reference |
-|-------------|-----------|
-| Business Map | references/drawio-standards.md |
-| Bow-Tie Funnel | references/bowtie-funnel.md |
-| Process Swimlane | references/swimlane-templates.md |
-| System Connection Map | references/system-connection-template.md |
-| Operating System Map | references/operating-system-map-template.md |
-| 24 Assets Scorecard | references/scorecard-template.md |
+| Section | HTML pattern |
+|---------|--------------|
+| Business Map | 7-column CSS Grid |
+| Bow-Tie Funnel | 3-column grid (acquisition / commit / delivery) |
+| Process Swimlane | Row per actor, flexbox step chain with annotation classes |
+| System Connection Map | Hub-and-spoke SVG inside HTML |
+| 24 Assets Scorecard | 7-category grid + score badge |
+| Action Roadmap | DO FIRST / NEXT / LATER bulleted lists |
 
 ---
 
