@@ -6,150 +6,446 @@
 <title>{{BUSINESS_NAME}} — Business X-Ray Report</title>
 <style>
   :root {
-    --bg: #0f172a; --surface: #1e293b; --border: #334155;
-    --text: #e2e8f0; --muted: #94a3b8; --accent: #3b82f6;
-    --green: #22c55e; --yellow: #eab308; --red: #ef4444; --purple: #a855f7;
+    --bg: #0a0e1a;
+    --surface: #131825;
+    --border: #1f2937;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --yellow: #d29922;
+    --orange: #f0883e;
+    --red: #f85149;
+    --pink: #ff7b72;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; }
-  .container { max-width: 1200px; margin: 0 auto; }
-  h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-  h2 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
-  .subtitle { color: var(--muted); margin-bottom: 2rem; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-  .metric { text-align: center; padding: 1.5rem; }
-  .metric-value { font-size: 2.5rem; font-weight: 700; }
-  .metric-label { color: var(--muted); font-size: 0.9rem; }
-  .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin: 0.25rem; }
-  .tag-red { background: rgba(239,68,68,0.2); color: var(--red); }
-  .tag-yellow { background: rgba(234,179,8,0.2); color: var(--yellow); }
-  .tag-green { background: rgba(34,197,94,0.2); color: var(--green); }
-  .tag-purple { background: rgba(168,85,247,0.2); color: var(--purple); }
-  table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-  th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; }
-  .bowtie { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin: 1rem 0; }
-  .bowtie-stage { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
-  .bowtie-stage h4 { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem; }
-  .bowtie-stage ul { list-style: none; font-size: 0.85rem; }
-  .bowtie-stage li { padding: 0.25rem 0; }
-  .swimlane { position: relative; margin: 2rem 0; }
-  .lane-row { display: flex; align-items: center; margin: 0.5rem 0; }
-  .lane-label { width: 120px; font-size: 0.85rem; color: var(--muted); font-weight: 600; }
-  .lane-steps { display: flex; gap: 0.5rem; flex-wrap: wrap; flex: 1; }
-  .step { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.85rem; position: relative; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .container { width: 100%; padding: 2rem 2.5rem; }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .subtitle { color: var(--muted); font-size: 1.1rem; }
+  h2 {
+    font-size: 1.75rem;
+    margin: 3rem 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 1.25rem; margin: 1.5rem 0 0.75rem; color: var(--accent); }
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .meta-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .meta-label { color: var(--muted); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .meta-value { font-size: 1.5rem; font-weight: 600; margin-top: 0.25rem; }
+
+  /* Business Map - edge to edge, 7 columns wide, no max-width clamp */
+  .business-map {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+  .column {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem 1rem;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+  }
+  .col-traffic    { border-top-color: #3fb950; }
+  .col-converters { border-top-color: #8b949e; }
+  .col-products   { border-top-color: #58a6ff; }
+  .col-funnels    { border-top-color: #bc8cff; }
+  .col-math       { border-top-color: #d29922; }
+  .col-team       { border-top-color: #ff7b72; }
+  .col-goals      { border-top-color: #f0883e; }
+
+  .column-header {
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-size: 1.05rem;
+  }
+  .col-num {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .column-sub {
+    color: var(--muted);
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    border-radius: 4px;
+    padding: 0.55rem 0.65rem;
+    margin-bottom: 0.35rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  .item strong { color: var(--text); }
+  .item-detail {
+    color: var(--muted);
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+    line-height: 1.3;
+  }
+  .item.primary   { border-left-color: var(--green); }
+  .item.secondary { border-left-color: var(--blue); }
+  .item.planned {
+    border-left-color: var(--muted);
+    border-style: dashed;
+    opacity: 0.85;
+  }
+  .item.paid      { border-left-color: var(--blue); }
+  .item.funnel    { border-left-color: var(--purple); }
+  .item.goal      { border-left-color: var(--orange); }
+  .price {
+    display: inline-block;
+    margin-top: 0.2rem;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .bowtie {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 1rem;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+  .bowtie-side {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .bowtie-side.acquisition { border-top: 3px solid var(--blue); }
+  .bowtie-side.delivery { border-top: 3px solid var(--green); }
+  .bowtie-knot {
+    text-align: center;
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin: 0 auto;
+  }
+  .bowtie-stage {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.875rem;
+  }
+  .bowtie-stage:last-child { border-bottom: none; }
+  .bowtie-stage strong { color: var(--accent); display: block; margin-bottom: 0.25rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th { background: rgba(255,255,255,0.05); font-weight: 600; color: var(--accent); }
+  tr:last-child td { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .badge-red { background: rgba(248,81,73,0.2); color: var(--red); }
+  .badge-orange { background: rgba(240,136,62,0.2); color: var(--orange); }
+  .badge-green { background: rgba(63,185,80,0.2); color: var(--green); }
+  .badge-purple { background: rgba(188,140,255,0.2); color: var(--purple); }
+  .opportunity-list {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+  }
+  .opportunity-list li { margin-bottom: 0.5rem; }
+  .annotation {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  /* Process swimlane */
+  .swimlane { margin: 2rem 0; }
+  .lane-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem;
+  }
+  .lane-label {
+    min-width: 110px;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 0.875rem;
+  }
+  .lane-steps {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  .step {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
   .step.bottleneck { border-color: var(--red); border-width: 2px; }
-  .step.automate { border-style: dashed; border-color: var(--yellow); }
+  .step.automate { border-style: dashed; border-color: var(--orange); }
   .step.high-value { border-color: var(--green); border-width: 2px; }
-  .step.digital-asset { border-color: var(--purple); }
-  .arrow { color: var(--muted); margin: 0 0.25rem; align-self: center; }
-  .roadmap-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
-  .roadmap-priority { font-weight: 700; min-width: 80px; }
-  .priority-high { color: var(--red); }
-  .priority-medium { color: var(--yellow); }
-  .priority-low { color: var(--muted); }
-  .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; text-align: center; }
-  .section-icon { margin-right: 0.5rem; }
-  @media print { body { background: white; color: #1a1a1a; } .card { border: 1px solid #ddd; } }
+  .step.digital-asset { border-color: var(--purple); border-width: 2px; }
+  .arrow { color: var(--muted); }
 </style>
 </head>
 <body>
 <div class="container">
 
-<h1>{{BUSINESS_NAME}}</h1>
-<p class="subtitle">Business X-Ray Report · {{DATE}}</p>
+<header>
+  <h1>{{BUSINESS_NAME}} — Business X-Ray</h1>
+  <p class="subtitle">{{TAGLINE}} · Report generated {{DATE}}</p>
+</header>
 
-<!-- EXECUTIVE SUMMARY -->
-<h2><span class="section-icon">📊</span>Executive Summary</h2>
-<div class="grid">
-  <div class="card metric">
-    <div class="metric-value" style="color: var(--accent);">{{TOTAL_PROCESSES}}</div>
-    <div class="metric-label">Processes Mapped</div>
+<section>
+  <h2>Executive Summary</h2>
+  <div class="meta">
+    <div class="meta-card">
+      <div class="meta-label">Archetype</div>
+      <div class="meta-value">{{ARCHETYPE}}</div>
+    </div>
+    <div class="meta-card">
+      <div class="meta-label">Revenue Model</div>
+      <div class="meta-value">{{REVENUE_MODEL}}</div>
+    </div>
+    <div class="meta-card">
+      <div class="meta-label">Ceiling (est.)</div>
+      <div class="meta-value">{{CEILING}}</div>
+    </div>
+    <div class="meta-card">
+      <div class="meta-label">Bottlenecks</div>
+      <div class="meta-value">{{BOTTLENECKS}} flagged</div>
+    </div>
+    <div class="meta-card">
+      <div class="meta-label">Automation Opps</div>
+      <div class="meta-value">{{AUTOMATION_OPPS}} flagged</div>
+    </div>
+    <div class="meta-card">
+      <div class="meta-label">24 Assets</div>
+      <div class="meta-value">{{LEVERAGE_SCORE}}</div>
+    </div>
   </div>
-  <div class="card metric">
-    <div class="metric-value" style="color: var(--red);">{{BOTTLENECKS}}</div>
-    <div class="metric-label">Bottlenecks Found</div>
-  </div>
-  <div class="card metric">
-    <div class="metric-value" style="color: var(--yellow);">{{AUTOMATION_OPPS}}</div>
-    <div class="metric-label">Automation Opportunities</div>
-  </div>
-  <div class="card metric">
-    <div class="metric-value" style="color: var(--green);">{{LEVERAGE_SCORE}}</div>
-    <div class="metric-label">Leverage Score</div>
-  </div>
-</div>
+</section>
 
-<!-- BUSINESS MODEL -->
-<h2><span class="section-icon">🏢</span>Business Model</h2>
-<div class="card">
-  <p><strong>Archetype:</strong> {{ARCHETYPE}}</p>
-  <p><strong>Revenue Model:</strong> {{REVENUE_MODEL}}</p>
-  <p><strong>Core Value Chain:</strong> {{VALUE_CHAIN}}</p>
-</div>
+<section>
+  <h2>Business Map — 7 Columns</h2>
 
-<!-- BOW-TIE FUNNEL -->
-<h2><span class="section-icon">🎯</span>Bow-Tie Funnel</h2>
-<div class="bowtie">
-  <div class="bowtie-stage">
-    <h4>Attract</h4>
-    <ul>{{ATTRACT_ITEMS}}</ul>
+  <div class="business-map">
+    <div class="column col-traffic">
+      <div class="column-header"><span class="col-num">01</span>Traffic</div>
+      <p class="column-sub">How strangers find you</p>
+      {{TRAFFIC_ITEMS}}
+    </div>
+
+    <div class="column col-converters">
+      <div class="column-header"><span class="col-num">02</span>Converters</div>
+      <p class="column-sub">Pages where they land</p>
+      {{CONVERTER_ITEMS}}
+    </div>
+
+    <div class="column col-products">
+      <div class="column-header"><span class="col-num">03</span>Products</div>
+      <p class="column-sub">What you sell</p>
+      {{PRODUCT_ITEMS}}
+    </div>
+
+    <div class="column col-funnels">
+      <div class="column-header"><span class="col-num">04</span>Funnels</div>
+      <p class="column-sub">Selling assets</p>
+      {{FUNNEL_ITEMS}}
+    </div>
+
+    <div class="column col-math">
+      <div class="column-header"><span class="col-num">05</span>Math</div>
+      <p class="column-sub">Money flow</p>
+      {{MATH_ITEMS}}
+    </div>
+
+    <div class="column col-team">
+      <div class="column-header"><span class="col-num">06</span>Team</div>
+      <p class="column-sub">Who's doing the work</p>
+      {{TEAM_ITEMS}}
+    </div>
+
+    <div class="column col-goals">
+      <div class="column-header"><span class="col-num">07</span>Goals</div>
+      <p class="column-sub">Actions that drive revenue</p>
+      {{GOAL_ITEMS}}
+    </div>
   </div>
-  <div class="bowtie-stage">
-    <h4>Engage</h4>
-    <ul>{{ENGAGE_ITEMS}}</ul>
+</section>
+
+<section>
+  <h2>Bow-Tie Funnel — Customer Journey</h2>
+
+  <div class="bowtie">
+    <div class="bowtie-side acquisition">
+      <h3>ACQUISITION</h3>
+      <div class="bowtie-stage">
+        <strong>1. Awareness</strong>
+        {{ATTRACT_AWARENESS}}
+      </div>
+      <div class="bowtie-stage">
+        <strong>2. Nurturing</strong>
+        {{ATTRACT_NURTURING}}
+      </div>
+      <div class="bowtie-stage">
+        <strong>3. Consideration</strong>
+        {{ATTRACT_CONSIDERATION}}
+      </div>
+    </div>
+    <div class="bowtie-knot">COMMIT</div>
+    <div class="bowtie-side delivery">
+      <h3>DELIVERY</h3>
+      <div class="bowtie-stage">
+        <strong>4. Onboarding</strong>
+        {{DELIVER_ONBOARDING}}
+      </div>
+      <div class="bowtie-stage">
+        <strong>5. Launch</strong>
+        {{DELIVER_LAUNCH}}
+      </div>
+      <div class="bowtie-stage">
+        <strong>6. Results</strong>
+        {{DELIVER_RESULTS}}
+      </div>
+    </div>
   </div>
-  <div class="bowtie-stage">
-    <h4>Convert</h4>
-    <ul>{{CONVERT_ITEMS}}</ul>
-  </div>
-  <div class="bowtie-stage">
-    <h4>Deliver</h4>
-    <ul>{{DELIVER_ITEMS}}</ul>
-  </div>
-  <div class="bowtie-stage">
-    <h4>Retain</h4>
-    <ul>{{RETAIN_ITEMS}}</ul>
-  </div>
-</div>
+</section>
 
-<!-- PROCESS MAP -->
-<h2><span class="section-icon">🔄</span>Process Map</h2>
-{{PROCESS_MAP}}
+<section>
+  <h2>Process Swimlanes</h2>
+  {{PROCESS_MAP}}
+</section>
 
-<!-- TOOL INVENTORY -->
-<h2><span class="section-icon">🛠️</span>Tool Inventory</h2>
-<table>
-  <tr><th>Tool</th><th>Used In</th><th>Automation Tier</th><th>MCP Available</th></tr>
-  {{TOOL_ROWS}}
-</table>
+<section>
+  <h2>Opportunities Identified</h2>
 
-<!-- OPPORTUNITIES -->
-<h2><span class="section-icon">💡</span>Opportunities</h2>
-<table>
-  <tr><th>Area</th><th>Opportunity</th><th>Category</th><th>Impact</th><th>Effort</th></tr>
-  {{OPPORTUNITY_ROWS}}
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Opportunity</th>
+        <th>Type</th>
+        <th>Impact</th>
+        <th>Effort</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{OPPORTUNITY_ROWS}}
+    </tbody>
+  </table>
+</section>
 
-<!-- ACTION ROADMAP -->
-<h2><span class="section-icon">🗺️</span>90-Day Roadmap</h2>
-<h3>Do First (Weeks 1-2)</h3>
-{{DO_FIRST}}
-<h3>Do Next (Weeks 3-6)</h3>
-{{DO_NEXT}}
-<h3>Do Later (Weeks 7-12)</h3>
-{{DO_LATER}}
+<section>
+  <h2>90-Day Roadmap</h2>
 
-<!-- DIGITAL ASSETS -->
-<h2><span class="section-icon">📦</span>24 Digital Assets Score</h2>
-<div class="grid">
-  {{ASSET_CATEGORIES}}
-</div>
+  <h3>DO FIRST (Weeks 1–4)</h3>
+  <ul class="opportunity-list">
+    {{DO_FIRST}}
+  </ul>
+
+  <h3>DO NEXT (Weeks 5–8)</h3>
+  <ul class="opportunity-list">
+    {{DO_NEXT}}
+  </ul>
+
+  <h3>DO LATER (Weeks 9–12)</h3>
+  <ul class="opportunity-list">
+    {{DO_LATER}}
+  </ul>
+</section>
+
+<section>
+  <h2>Tool Inventory</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Process</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{TOOL_ROWS}}
+    </tbody>
+  </table>
+</section>
 
 <div class="footer">
-  Generated by Hermes Forge · Business X-Ray · {{DATE}}
+  Generated by Hermes Forge · business-xray skill · <a href="https://xray.bawai.org" style="color: var(--accent);">xray.bawai.org</a>
 </div>
 
 </div>
