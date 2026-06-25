@@ -1,0 +1,342 @@
+# Business X-Ray
+
+Source: business-x-ray/examples/example-operating-system-map-coach.drawio
+MIME: text/plain
+
+<mxfile host="app.diagrams.net">
+  <diagram name="Operating System Map" id="page-osmap">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1880" pageHeight="980" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- TITLE -->
+        <mxCell id="osm-title" value="APEX COACHING — OPERATING SYSTEM" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#1a1a2e;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-subtitle" value="Your business as connected Skill Systems — each runs Skills on its Digital Assets, and passes a Digital Asset to the next stage" style="text;html=1;fontSize=12;fontColor=#666666;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="54" width="1300" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- LEGEND (horizontal strip, emoji swatches) -->
+        <mxCell id="osm-legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#e0e0e0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="84" width="1800" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-legend-text" value="🟦 Skill System (AI worker you build)     ·     ⬜ Skill (one job it runs)     ·     🔌 Tool / MCP:  ✅ native MCP · 🔶 via Zapier/API · ⚪ none yet     ·     🟪 Digital Asset (knowledge it runs on &amp; passes on)     ·     🟧 Handoff (asset passed to the next stage)" style="text;html=1;fontSize=11;fontColor=#333333;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="54" y="84" width="1780" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- ===================== STAGE 0 — MARKETING / MAYA ===================== -->
+        <mxCell id="osm-frame-0" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cfe3f7;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="130" width="300" height="560" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-emp-0" value="&lt;b&gt;① MARKETING SKILL SYSTEM&lt;/b&gt;&#10;🤖 Maya · Content &amp; Lead Gen" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#1a56db;fontColor=#ffffff;fontSize=12;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="130" width="300" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-skills-0" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4fe;strokeColor=#a9c4ec;" vertex="1" parent="1">
+          <mxGeometry x="50" y="206" width="280" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-skills-0" value="⚙  SKILLS — jobs it runs" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#1a56db;align=left;" vertex="1" parent="1">
+          <mxGeometry x="58" y="212" width="240" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-0-0" value="draft-content" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="236" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-0-1" value="repurpose-clips" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="272" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-0-2" value="capture-leads" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="308" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-tools-0" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#d9d9d9;" vertex="1" parent="1">
+          <mxGeometry x="50" y="364" width="280" height="158" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-tools-0" value="🔌  TOOLS / MCPs — what it plugs into" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#555555;align=left;" vertex="1" parent="1">
+          <mxGeometry x="58" y="370" width="270" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-0-0" value="✅ YouTube" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="394" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-0-1" value="🔶 Kit (ConvertKit)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e6;strokeColor=#d79b00;strokeWidth=2;fontColor=#8a6914;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="430" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-0-2" value="⚪ Canva" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4f4f4;strokeColor=#999999;strokeWidth=1;dashed=1;fontColor=#555555;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="466" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-assets-0" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7f2fc;strokeColor=#d6bdea;" vertex="1" parent="1">
+          <mxGeometry x="50" y="534" width="280" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-assets-0" value="📄  DIGITAL ASSETS — knowledge it runs on" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#5b3a8c;align=left;" vertex="1" parent="1">
+          <mxGeometry x="58" y="540" width="270" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-0-0" value="Content Framework" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="564" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-0-1" value="Brand Voice Guide" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="600" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-0-2" value="Lead Magnet" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="636" width="260" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- HANDOFF 0 (Marketing → Sales) -->
+        <mxCell id="osm-shelf-0" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e6;strokeColor=#d79b00;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="330" width="150" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-shelf-lbl-0" value="📄 PASSES  →" style="text;html=1;fontSize=10;fontStyle=1;fontColor=#8a6914;align=left;" vertex="1" parent="1">
+          <mxGeometry x="373" y="336" width="134" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-pass-0-0" value="Qualified Lead List" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="373" y="360" width="134" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-pass-0-1" value="Nurtured Subscriber" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="373" y="400" width="134" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-flowin-0" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#d79b00;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="osm-frame-0" target="osm-shelf-0">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-flowout-0" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#d79b00;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="osm-shelf-0" target="osm-frame-1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ===================== STAGE 1 — SALES / SAM ===================== -->
+        <mxCell id="osm-frame-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cfe3f7;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="130" width="300" height="560" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-emp-1" value="&lt;b&gt;② SALES SKILL SYSTEM&lt;/b&gt;&#10;🤖 Sam · Qualify &amp; Close" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#1a56db;fontColor=#ffffff;fontSize=12;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="540" y="130" width="300" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-skills-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4fe;strokeColor=#a9c4ec;" vertex="1" parent="1">
+          <mxGeometry x="550" y="206" width="280" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-skills-1" value="⚙  SKILLS — jobs it runs" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#1a56db;align=left;" vertex="1" parent="1">
+          <mxGeometry x="558" y="212" width="240" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-1-0" value="qualify-application" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="236" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-1-1" value="prep-call" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="272" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-1-2" value="follow-up" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="308" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-tools-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#d9d9d9;" vertex="1" parent="1">
+          <mxGeometry x="550" y="364" width="280" height="158" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-tools-1" value="🔌  TOOLS / MCPs — what it plugs into" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#555555;align=left;" vertex="1" parent="1">
+          <mxGeometry x="558" y="370" width="270" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-1-0" value="🔶 Calendly" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e6;strokeColor=#d79b00;strokeWidth=2;fontColor=#8a6914;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="394" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-1-1" value="✅ Notion (CRM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="430" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-1-2" value="🔶 Zoom" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e6;strokeColor=#d79b00;strokeWidth=2;fontColor=#8a6914;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="466" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-assets-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7f2fc;strokeColor=#d6bdea;" vertex="1" parent="1">
+          <mxGeometry x="550" y="534" width="280" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-assets-1" value="📄  DIGITAL ASSETS — knowledge it runs on" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#5b3a8c;align=left;" vertex="1" parent="1">
+          <mxGeometry x="558" y="540" width="270" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-1-0" value="Offer Doc" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="564" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-1-1" value="Call Script" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="600" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-1-2" value="Objection FAQ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="636" width="260" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- HANDOFF 1 (Sales → Delivery) -->
+        <mxCell id="osm-shelf-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e6;strokeColor=#d79b00;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="865" y="330" width="150" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-shelf-lbl-1" value="📄 PASSES  →" style="text;html=1;fontSize=10;fontStyle=1;fontColor=#8a6914;align=left;" vertex="1" parent="1">
+          <mxGeometry x="873" y="336" width="134" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-pass-1-0" value="Signed Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="873" y="360" width="134" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-pass-1-1" value="Intake + Goals Doc" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="873" y="400" width="134" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-flowin-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#d79b00;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="osm-frame-1" target="osm-shelf-1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-flowout-1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#d79b00;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="osm-shelf-1" target="osm-frame-2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ===================== STAGE 2 — DELIVERY / DEV ===================== -->
+        <mxCell id="osm-frame-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cfe3f7;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="130" width="300" height="560" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-emp-2" value="&lt;b&gt;③ DELIVERY SKILL SYSTEM&lt;/b&gt;&#10;🤖 Dev · Onboarding &amp; Coaching" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#1a56db;fontColor=#ffffff;fontSize=12;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="130" width="300" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-skills-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4fe;strokeColor=#a9c4ec;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="206" width="280" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-skills-2" value="⚙  SKILLS — jobs it runs" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#1a56db;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1058" y="212" width="240" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-2-0" value="onboard-client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="236" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-2-1" value="session-recap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="272" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-2-2" value="track-progress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="308" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-tools-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#d9d9d9;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="364" width="280" height="158" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-tools-2" value="🔌  TOOLS / MCPs — what it plugs into" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#555555;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1058" y="370" width="270" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-2-0" value="✅ Notion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="394" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-2-1" value="🔶 Zoom" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e6;strokeColor=#d79b00;strokeWidth=2;fontColor=#8a6914;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="430" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-2-2" value="✅ Google Drive" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="466" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-assets-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7f2fc;strokeColor=#d6bdea;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="534" width="280" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-assets-2" value="📄  DIGITAL ASSETS — knowledge it runs on" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#5b3a8c;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1058" y="540" width="270" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-2-0" value="Onboarding SOP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="564" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-2-1" value="Coaching Curriculum" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="600" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-2-2" value="Progress Templates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="636" width="260" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- HANDOFF 2 (Delivery → Operations) -->
+        <mxCell id="osm-shelf-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e6;strokeColor=#d79b00;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1365" y="330" width="150" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-shelf-lbl-2" value="📄 PASSES  →" style="text;html=1;fontSize=10;fontStyle=1;fontColor=#8a6914;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1373" y="336" width="134" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-pass-2-0" value="Results Report" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1373" y="360" width="134" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-pass-2-1" value="Testimonial" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1373" y="400" width="134" height="34" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-flowin-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#d79b00;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="osm-frame-2" target="osm-shelf-2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-flowout-2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#d79b00;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="osm-shelf-2" target="osm-frame-3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ===================== STAGE 3 — OPERATIONS / ONA ===================== -->
+        <mxCell id="osm-frame-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cfe3f7;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="130" width="300" height="560" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-emp-3" value="&lt;b&gt;④ OPERATIONS SKILL SYSTEM&lt;/b&gt;&#10;🤖 Ona · Admin &amp; Money" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#1a56db;fontColor=#ffffff;fontSize=12;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="130" width="300" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-skills-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4fe;strokeColor=#a9c4ec;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="206" width="280" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-skills-3" value="⚙  SKILLS — jobs it runs" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#1a56db;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1558" y="212" width="240" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-3-0" value="invoice-and-reconcile" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="236" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-3-1" value="weekly-report" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="272" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-skill-3-2" value="schedule-manage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontColor=#1a56db;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="308" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-tools-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#d9d9d9;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="364" width="280" height="158" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-tools-3" value="🔌  TOOLS / MCPs — what it plugs into" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#555555;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1558" y="370" width="270" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-3-0" value="✅ Stripe" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="394" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-3-1" value="✅ Notion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="430" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-tool-3-2" value="🔶 QuickBooks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e6;strokeColor=#d79b00;strokeWidth=2;fontColor=#8a6914;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="466" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-zone-assets-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7f2fc;strokeColor=#d6bdea;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="534" width="280" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-lbl-assets-3" value="📄  DIGITAL ASSETS — knowledge it runs on" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#5b3a8c;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1558" y="540" width="270" height="18" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-3-0" value="SOP Library" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="564" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-3-1" value="KPI Definitions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="600" width="260" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-asset-3-2" value="Invoice Templates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9370DB;fontColor=#5b3a8c;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="636" width="260" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- LOOP-BACK (retention / referral fuels new leads) -->
+        <mxCell id="osm-loopback" value="↺  renewal &amp; referral fuels new leads" style="endArrow=block;html=1;rounded=1;strokeColor=#d79b00;strokeWidth=2;dashed=1;fontSize=10;fontStyle=2;fontColor=#8a6914;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="osm-frame-3" target="osm-frame-0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1690" y="720"/>
+              <mxPoint x="190" y="720"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===================== SKILL SYSTEMS TO BUILD FIRST ===================== -->
+        <mxCell id="osm-opp-divider" value="" style="line;strokeColor=#e0e0e0;strokeWidth=1;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="752" width="1800" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-opp-header" value="⚡ SKILL SYSTEMS TO BUILD FIRST" style="text;html=1;fontSize=15;fontStyle=1;fontColor=#1a1a2e;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="762" width="1000" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-opp-0" value="&lt;b&gt;Lead Qualifier&lt;/b&gt;  ·  Sam&#10;&#10;Scores every application &amp; replies, so you only spend calls on people ready to buy." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="794" width="340" height="128" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-opp-1" value="&lt;b&gt;Onboarding Skill System&lt;/b&gt;  ·  Dev&#10;&#10;Turns a new payment into a fully set-up client — welcome, intake, portal — in minutes, not days." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="402" y="794" width="340" height="128" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-opp-2" value="&lt;b&gt;Content Repurposer&lt;/b&gt;  ·  Maya&#10;&#10;Turns each long video into a week of clips, posts &amp; a newsletter — from one recording." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="764" y="794" width="340" height="128" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-opp-3" value="&lt;b&gt;Session Recap Writer&lt;/b&gt;  ·  Dev&#10;&#10;Drafts notes + next steps after every call from the transcript, so follow-through never slips." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="1126" y="794" width="340" height="128" as="geometry"/>
+        </mxCell>
+        <mxCell id="osm-opp-4" value="&lt;b&gt;Canva Connector&lt;/b&gt;  ·  ⚪ build it&#10;&#10;Small custom MCP so Maya pulls &amp; exports designs directly — turns the one ⚪ tool into ✅." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#82b366;strokeWidth=2;fontColor=#2d6a4f;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="1488" y="794" width="340" height="128" as="geometry"/>
+        </mxCell>
+
+        <!-- BACK LINK -->
+        <mxCell id="osm-back" value="← Back to Overview" style="rounded=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;link=data:page/id,page-1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="938" width="150" height="30" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
